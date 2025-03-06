@@ -1,0 +1,35 @@
+{
+    "quizTitle": "Identités Remarquables - Quiz 1",
+    "questions": [
+        {
+            "question": "Quelle est l'identité remarquable pour (a + b)^2 ?",
+            "options": [
+                "a^2 + b^2",
+                "a^2 + 2ab + b^2",
+                "a^2 - 2ab + b^2",
+                "a^2 - b^2"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Quelle est l'identité remarquable pour (a - b)^2 ?",
+            "options": [
+                "a^2 + b^2",
+                "a^2 + 2ab + b^2",
+                "a^2 - 2ab + b^2",
+                "a^2 - b^2"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "Quelle est l'identité remarquable pour (a + b)(a - b) ?",
+            "options": [
+                "a^2 + b^2",
+                "a^2 + 2ab + b^2",
+                "a^2 - 2ab + b^2",
+                "a^2 - b^2"
+            ],
+            "correctAnswer": 3
+        }
+    ]
+}

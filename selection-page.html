@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection du quizz</title>
+    <link rel="stylesheet" href="CSS/style.css"></link>
+    <script type="module">
+        import { load_file } from './JS/load-api.js';
+        window.load_file = load_file;
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-menu">
+            <a href="index.html" class="header-text">Menu</a>
+            <a href="selection-page.html" class="header-text">Nos quizz</a>
+        </div>
+    </header>   
+    <div class="quizz-selection-main-container">
+        <button onclick="load_file('Assets/Quizz/IdentitesRemarquarbles/Quizz-2.json')">Quizz-2 Identités Remarquarbles</button>
+        <button onclick="load_file('Assets/Quizz/Thomas/Test.json')">Quizz pour thomas</button>
+    </div>
+</body>
+</html>

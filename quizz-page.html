@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz de math</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$','$$'], ['\\[','\\]']]
+          }
+        };
+      </script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-menu">
+            <a href="index.html" class="header-text">Menu</a>
+            <a href="selection-page.html" class="header-text">Nos quizz</a>
+        </div>
+    </header>
+    <main class="quizz-container" data-json-path="./Assets/Quizz/IdentitesRemarquarbles/Quizz-2.json">
+        <div class="quizz-main">
+            <!-- Le contenu du quiz sera inséré ici -->
+            
+        </div>
+    </main>
+    <script src="JS/main.js" type="module"></script>
+</body>
+</html>

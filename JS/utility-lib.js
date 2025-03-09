@@ -1,3 +1,5 @@
+import * as api from './load-api.js';
+
 function get_score_digits_number(score) {
     const number = score - (score%1);
     return number.toString().length;
@@ -58,7 +60,7 @@ export function shuffleArray(array) {
     return array;
 }
 
-export function animate_score(score) {
+export function animate_score(score, maxScore) {
     const score_digit_component = document.getElementsByClassName('score-decimal-digit')[0];
     const score_integer_container = document.getElementsByClassName('score-integer-container')[0];
     score_digit_component.innerHTML = '';
@@ -93,5 +95,30 @@ export function animate_score(score) {
     </span>
     `;
 
-    play_animation(score)
-}  
+    play_animation(score);
+    
+    if (score >= maxScore*0.9) {
+        confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }
+}
+
+export function show_available_quiz() {
+    const quiz_paths = ['/Quizz-2.json']
+
+    const quizz_selector_list = document.querySelector('.quizz-selection-main-container')
+
+    for (let path of quiz_paths) {
+        let final_path = `Assets/Quizz${path}`
+        let selector = document.createElement('button');
+        selector.onclick = () => load_file(final_path);
+        api.get_json_data(final_path).then(data => {
+            selector.innerHTML = data.quizTitle;
+        });
+        quizz_selector_list.appendChild(selector);
+    }
+
+}

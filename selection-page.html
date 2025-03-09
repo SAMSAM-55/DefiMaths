@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="CSS/style.css"></link>
     <script type="module">
         import { load_file } from './JS/load-api.js';
+        import {show_available_quiz} from './JS/utility-lib.js';
+        show_available_quiz();
         window.load_file = load_file;
     </script>
 </head>
@@ -14,12 +16,9 @@
     <header>
         <div class="header-menu">
             <a href="index.html" class="header-text">Menu</a>
-            <a href="selection-page.html" class="header-text">Nos quizz</a>
+            <a href="selection-page.html" class="header-text">Nos quiz</a>
         </div>
     </header>   
-    <div class="quizz-selection-main-container">
-        <button onclick="load_file('Assets/Quizz/IdentitesRemarquarbles/Quizz-2.json')">Quizz-2 Identités Remarquarbles</button>
-        <button onclick="load_file('Assets/Quizz/Thomas/Test.json')">Quizz pour thomas</button>
-    </div>
+    <div class="quizz-selection-main-container"></div>
 </body>
 </html>

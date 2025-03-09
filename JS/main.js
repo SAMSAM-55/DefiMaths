@@ -44,7 +44,7 @@ function show_question(list, index) {
 
     const optionsWithIndex = question.options.map((option, i) => ({ option, index: i }));
     const shuffledOptions = lib.shuffleArray(optionsWithIndex);
-    if (question.answerType === "mc") {
+    if (question.answerType === "multipleOptions") {
         questionElement.innerHTML = `
             <h2 class="main-question-text">Question ${index + 1}: ${question.question}</h2>
             <progress class="timer" id="timer" value="0" max="100"></progress>

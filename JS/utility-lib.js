@@ -107,7 +107,7 @@ export function animate_score(score, maxScore) {
 }
 
 export function show_available_quiz() {
-    const quiz_paths = ['/Quizz-2.json']
+    const quiz_paths = ['/IdentitesRemarquables/Quizz-2.json']
 
     const quizz_selector_list = document.querySelector('.quizz-selection-main-container')
 

@@ -6,7 +6,7 @@ import * as lib from './utility-lib.js';
 const quizzContainer = document.querySelector('.quizz-main');
 let timerInterval;
 let animationFrameId;
-let NumberOfQuestions = 10;
+let NumberOfQuestions = 5;
 let IsLastAnswerCorrect = false;
 let canAnswer = true;
 let CurrentQuestion = 0;
@@ -44,28 +44,29 @@ function show_question(list, index) {
 
     const optionsWithIndex = question.options.map((option, i) => ({ option, index: i }));
     const shuffledOptions = lib.shuffleArray(optionsWithIndex);
-
-    questionElement.innerHTML = `
-        <h2 class="main-question-text">Question ${index + 1}: ${question.question}</h2>
-        <progress class="timer" id="timer" value="0" max="100"></progress>
-        <ul class="quizz-answer-list" correct-answer="${question.correctAnswer-1}">
-            ${shuffledOptions.map(({ option, index }) => `
-                    <button class="quizz-answer-button" style="--border-color:black;" correct-answer=${index == question.correctAnswer - 1}>
-                        <a class="answer-button-text" answer-index=${index}>${option}</a>
-                        <span class="answer-indicator"><i class="fa-regular fa-circle-xmark"></i></span>
-                    </button>
-            `).join('')}
-        </ul>
-        <div class="quizz-utility-buttons-container">
-            <button class="quizz-utility-button" id="next-question" onclick="nextQuestion(quizzData)"><p class="quizz-utility-button-text">Next Question <i class="fa-solid fa-arrow-right"></i></p></button>
-            <button class="quizz-utility-button" id="submitt-answer" onclick="checkAnswer(globalThis.selectedAnswer, 'answer submitted')"><p class="quizz-utility-button-text">Submit Answer</p></button>
-        </div>
-        <div class="quizz-score-container">
-            <p class="quizz-score-text">Score: <span id="score">0</span></p>
-            <p class="quizz-question-text">Question: <span id="question-index">0</span></p>    
-        </div>
-    `;
-    return [question.time*1000, questionElement];
+    if (question.answerType === "mc") {
+        questionElement.innerHTML = `
+            <h2 class="main-question-text">Question ${index + 1}: ${question.question}</h2>
+            <progress class="timer" id="timer" value="0" max="100"></progress>
+            <ul class="quizz-answer-list" correct-answer="${question.correctAnswer-1}">
+                ${shuffledOptions.map(({ option, index }) => `
+                        <button class="quizz-answer-button" style="--border-color:black;" correct-answer=${index == question.correctAnswer - 1}>
+                            <a class="answer-button-text" answer-index=${index}>${option}</a>
+                            <span class="answer-indicator"><i class="fa-regular fa-circle-xmark"></i></span>
+                        </button>
+                `).join('')}
+            </ul>
+            <div class="quizz-utility-buttons-container">
+                <button class="quizz-utility-button" id="next-question" onclick="nextQuestion(quizzData)"><p class="quizz-utility-button-text">Next Question <i class="fa-solid fa-arrow-right"></i></p></button>
+                <button class="quizz-utility-button" id="submitt-answer" onclick="checkAnswer(globalThis.selectedAnswer, 'answer submitted')"><p class="quizz-utility-button-text">Submit Answer</p></button>
+            </div>
+            <div class="quizz-score-container">
+                <p class="quizz-score-text">Score: <span id="score">0</span></p>
+                <p class="quizz-question-text">Question: <span id="question-index">0</span></p>    
+            </div>
+        `;
+        return [question.time*1000, questionElement];
+    }
 }
 
 // Fonction pour initialiser le quiz avec les données
@@ -85,12 +86,6 @@ function initializeQuizz(data) {
     updateScoreandQuestionLabels();
     globalThis.quizzData = data;
     startTimer(question_data[0]);
-
-    for (let i=0; i<10 ; i++) {
-        score += 7.86
-        hasAnswered = true
-        nextQuestion(data)
-    }
 }
 
 
@@ -149,7 +144,8 @@ function checkAnswer(button, trigger) {
             IsLastAnswerCorrect = true;
             answerStreak++;
             let timeRemaining = document.getElementById('timer').value/100;
-            score += (timeRemaining > 0.75 ? 10 : timeRemaining*(NumberOfQuestions+0.25));
+            console.log("Remaining Time : ", timeRemaining)
+            score += (timeRemaining > 0.75 ? 10 : timeRemaining*10.25);
             updateScoreandQuestionLabels();
             show_answer();
         } else {
@@ -204,7 +200,7 @@ function nextQuestion(data) {
     } else {
         quizzContainer.innerHTML = `<h2>End of the quiz!</h2>
         <p class=end_score_text> Your score : <span class="main-score-container"><span class="score-integer-container"></span><span class="score-text">.</span><span class="score-decimal-digit" value=0</span></span>`;
-        lib.animate_score(score);
+        lib.animate_score(score, NumberOfQuestions*10);
     }
 }
 
@@ -233,4 +229,4 @@ document.addEventListener('click', (event) => {
 });
 
 window.checkAnswer = checkAnswer;
-window.nextQuestion = nextQuestion
+window.nextQuestion = nextQuestion;

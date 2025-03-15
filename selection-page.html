@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selection du quizz</title>
-    <link rel="stylesheet" href="CSS/style.css"></link>
+    <title>Selection du quiz</title>
+    <link rel="icon" type="image/x-icon" href="Assets/Logo/SiteLogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></link>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/range-input.css">
     <script type="module">
         import { load_file } from './JS/load-api.js';
         import {show_available_quiz} from './JS/utility-lib.js';
@@ -14,11 +17,14 @@
 </head>
 <body>
     <header>
+        <div class="header-logo">
+            <img src="Assets/Logo/SiteLogo.png" alt="Logo" class="logo">
+        </div>
         <div class="header-menu">
             <a href="index.html" class="header-text">Menu</a>
             <a href="selection-page.html" class="header-text">Nos quiz</a>
         </div>
     </header>   
-    <div class="quizz-selection-main-container"></div>
+    <div class="quiz-selection-main-container"></div>
 </body>
 </html>

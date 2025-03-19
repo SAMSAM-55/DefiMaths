@@ -125,7 +125,7 @@ function add_slection_settings(container, data, path) {
 
     let slider = document.createElement('input');
             slider.type = 'range';
-            slider.min = '1';
+            slider.min = data.minQuestions;
             slider.max = data.maxQuestions;
             slider.value = '10';
             slider.step = '1';

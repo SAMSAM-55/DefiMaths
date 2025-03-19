@@ -154,7 +154,7 @@ function add_slection_settings(container, data, path) {
 
 // Function to show the available quizzes from the Assets/Quiz folder, the relatives paths from this folder are the strings in the quiz_paths variable
 export function show_available_quiz() {
-    const quiz_paths = ['/IdentitesRemarquables/Quiz-2.json', '/IdentitesRemarquables/Quiz-2.json', '/IdentitesRemarquables/Quiz-2.json']
+    const quiz_paths = ['/IdentitesRemarquables/Quiz-1.json', '/IdentitesRemarquables/Quiz-2.json']
 
     const quiz_selector_list = document.querySelector('.quiz-selection-main-container')
 

@@ -86,6 +86,8 @@ function initializeQuiz(data) {
     updateScoreandQuestionLabels();
     globalThis.quizData = data;
     startTimer(question_data[0]);
+
+    skipQuestions();
 }
 
 // Test function for skipping the questions (debugging purposes only)

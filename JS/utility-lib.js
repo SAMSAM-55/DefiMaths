@@ -29,7 +29,7 @@ function play_animation(score) {
         let number = get_digit_at_position(score, digit_position);
         let score_digits = current_text.querySelectorAll('.score-digit');
         score_digits.forEach((digit) => {
-            let digit_height = digit.clientHeight;
+            let digit_height = digit.getBoundingClientRect().height;
             console.log(digit_height);
             digit.style.transform = `translateY(calc(-1px*${number}*(${digit_height})))`; // number at the end is the ratio between the font size and the height of the digit
         });

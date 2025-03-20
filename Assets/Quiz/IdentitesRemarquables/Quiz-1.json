@@ -1,6 +1,6 @@
 {
     "quizTitle": "Identités Remarquables - Développement",
-    "instructions": "Développez chaque expression en choisissant la bonne option.",
+    "description": "Développez chaque expression en choisissant la bonne option.",
     "minQuestions": 5,
     "maxQuestions" : 25,
     "questions": [

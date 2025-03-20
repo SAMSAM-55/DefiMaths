@@ -116,12 +116,17 @@ export function animate_score(score, maxScore) {
 
 function add_slection_settings(container, data, path) {
     let info_container = document.createElement('div');
-    info_container.classList.add('quiz-selection-info-container');
-    container.appendChild(info_container);
+        info_container.classList.add('quiz-selection-info-container');
+        container.appendChild(info_container);
+
+    let quiz_description = document.createElement('p');
+        quiz_description.innerHTML = data.description;
+        quiz_description.classList.add('quiz-selection-description');
+        info_container.appendChild(quiz_description);
 
     let settings_container = document.createElement('div');
-    settings_container.classList.add('quiz-selection-settings-container');
-    info_container.appendChild(settings_container);
+        settings_container.classList.add('quiz-selection-settings-container');
+        info_container.appendChild(settings_container);
 
     let slider = document.createElement('input');
             slider.type = 'range';
@@ -150,6 +155,7 @@ function add_slection_settings(container, data, path) {
                 api.load_file(path, slider_value);
             };
             info_container.appendChild(start_button);
+
 }
 
 // Function to show the available quizzes from the Assets/Quiz folder, the relatives paths from this folder are the strings in the quiz_paths variable

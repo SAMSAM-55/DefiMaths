@@ -224,7 +224,7 @@ header {
 }
 
 .quiz-selection-container.selected .quiz-selection-info-container {
-    max-height : 87px;
+    max-height : 125px;
     transform: scaleY(1);
 }
 

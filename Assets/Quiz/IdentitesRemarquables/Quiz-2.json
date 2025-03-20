@@ -1,6 +1,6 @@
 {
     "quizTitle": "Identités Remarquables - Factorisation",
-    "quizIntroduction": "Ce quiz contient des questions sur la factorisation des identités remarquables.",
+    "description": "Factorisez chaque expression en choisissant la bonne option.",
     "minQuestions": 5,
     "maxQuestions" : 25,
     "questions": [

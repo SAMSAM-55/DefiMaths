@@ -1,0 +1,20 @@
+{
+    "quizTitle": "Test",
+    "description": "Is only used for debugging purposes",
+    "minQuestions": 1,
+    "maxQuestions" : 1,
+    "questions": [
+        {
+            "question": "Donnez l'aire d'un rectangle dimension 2 x 4",
+            "options": [
+                "$x^2 + 2x + 1$",
+                "$x^2 + x + 1$",
+                "$x^2 + 1$",
+                "$x^2 + 2$"
+            ],
+            "correctAnswer": "8",
+            "time": 20,
+            "answerType": "freeAnswer"
+        }
+    ]
+}

@@ -65,7 +65,25 @@ function show_question(list, index) {
                 <p class="quiz-question-text">Question: <span id="question-index">0</span></p>    
             </div>
         `;
-        return [question.time*1000, questionElement];
+        return [question.time*1000, questionElement, question];
+    }
+
+    else if (question.answerType === "freeAnswer") {
+        questionElement.innerHTML = `
+            <h2 class="main-question-text">Question ${index + 1}: ${question.question}</h2>
+            <progress class="timer" id="timer" value="0" max="100"></progress>
+            <label for="answer-input">Votre réponse :</label><br>
+            <input type="text" class="answer-input" id="answer-input" correct-answer="${question.correctAnswer}"></input>
+            <div class="quiz-utility-buttons-container">
+                <button class="quiz-utility-button" id="next-question" onclick="nextQuestion(quizData)"><p class="quiz-utility-button-text">Quest Suivante <i class="fa-solid fa-arrow-right"></i></p></button>
+                <button class="quiz-utility-button" id="submitt-answer" onclick="checkAnswer('', 'answer submitted')"><p class="quiz-utility-button-text">Valider Réponse</p></button>
+            </div>
+            <div class="quiz-score-container">
+                <p class="quiz-score-text">Score: <span id="score">0</span></p>
+                <p class="quiz-question-text">Question: <span id="question-index">0</span></p>    
+            </div>
+        `;
+        return[question.time*1000, questionElement, question]
     }
 }
 
@@ -81,20 +99,20 @@ function initializeQuiz(data) {
     const question_list = lib.pickrandomQuestions(data.questions, NumberOfQuestions);
     globalThis.question_list = question_list;
     const question_data = show_question(question_list, 0);
+    globalThis.question = question_data[2]
     quizContainer.appendChild(question_data[1]);
     MathJax.typeset();
     updateScoreandQuestionLabels();
     globalThis.quizData = data;
     startTimer(question_data[0]);
 
-    skipQuestions();
 }
 
 // Test function for skipping the questions (debugging purposes only)
 
 function skipQuestions() {
     for (let i = 0; i < NumberOfQuestions; i++) {
-        score += 1.5;
+        score += 9.4;
         hasAnswered = true;
         nextQuestion(quizData);
     }
@@ -140,9 +158,14 @@ function startTimer(duration) {
 
 // Function for checking the answer
 function checkAnswer(button, trigger) {
-    if (!button || hasAnswered) {
+    console.log("test, trigger : ", trigger, 
+        "answer type : ", question.answerType, 
+        "has answered : ", hasAnswered)
+    
+    if ((!button && question.answerType === "multipleOptions") || hasAnswered) {
         show_answer();
-        hasAnswered = true
+        hasAnswered = true;
+        console.log("No button found")
         return;
     }
 
@@ -150,27 +173,39 @@ function checkAnswer(button, trigger) {
         show_answer();
     }
     
-    else if (trigger == 'answer submitted') {
-        if (button.getAttribute('correct-answer') == 'true') {
-            IsLastAnswerCorrect = true;
-            answerStreak++;
-            let timeRemaining = document.getElementById('timer').value/100;
-            score += (timeRemaining > 0.75 ? 10 : timeRemaining*10.25);
-            updateScoreandQuestionLabels();
-            show_answer();
-        } else {
-            IsLastAnswerCorrect = false;
-            show_answer();
+    if (trigger == 'answer submitted') {
+        console.log("entered the answer submitted condition")
+        if (question.answerType === "multipleOptions") {
+            if (button.getAttribute('correct-answer') == 'true') {
+                IsLastAnswerCorrect = true;
+                answerStreak++;
+                let timeRemaining = document.getElementById('timer').value/100;
+                score += (timeRemaining > 0.75 ? 10 : timeRemaining*10.25);
+                updateScoreandQuestionLabels();
+                show_answer();
+            } else {
+                IsLastAnswerCorrect = false;
+                show_answer();
+            }
         }
+
+        else if (question.answerType === "freeAnswer") {
+            const answerInput = document.getElementsByClassName('answer-input')[0]
+            const submittedAnswer = String(answerInput.value).toLowerCase
+            console.log(submittedAnswer)
+        }
+
     }
 
     cancelAnimationFrame(animationFrameId);
     canAnswer = false;
 
-    if (!IsLastAnswerCorrect && button.querySelector('.answer-indicator')) {
-        button.style.setProperty('--border-color', 'red');
-        button.querySelector('.answer-indicator').classList.add('answered');
-        button.querySelector('.answer-indicator').innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
+    if (question.answerType === "multipleOptions") {
+        if (!IsLastAnswerCorrect && button.querySelector('.answer-indicator')) {
+            button.style.setProperty('--border-color', 'red');
+            button.querySelector('.answer-indicator').classList.add('answered');
+            button.querySelector('.answer-indicator').innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
+        }
     }
 
     hasAnswered = true;

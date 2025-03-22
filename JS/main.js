@@ -30,9 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function show_question(list, index) {
-    const question = list[index];
+    let question = list[index];
+    console.log("Question : ", question, " list : ", list, " index : ", index)
 
-    if (!question || !question.options || !list[index]) {
+    if (!question || (!question.options && question.answerType === "multipleOptions") || !list[index]) {
         console.error('Question or options not found');
         return;
         
@@ -41,10 +42,10 @@ function show_question(list, index) {
 
     const questionElement = document.createElement('div');
     questionElement.classList.add('answer-container');
-
-    const optionsWithIndex = question.options.map((option, i) => ({ option, index: i }));
-    const shuffledOptions = lib.shuffleArray(optionsWithIndex);
     if (question.answerType === "multipleOptions") {
+        const optionsWithIndex = question.options.map((option, i) => ({ option, index: i }));
+        const shuffledOptions = lib.shuffleArray(optionsWithIndex);
+
         questionElement.innerHTML = `
             <h2 class="main-question-text">Question ${index + 1}: ${question.question}</h2>
             <progress class="timer" id="timer" value="0" max="100"></progress>
@@ -73,7 +74,8 @@ function show_question(list, index) {
             <h2 class="main-question-text">Question ${index + 1}: ${question.question}</h2>
             <progress class="timer" id="timer" value="0" max="100"></progress>
             <label for="answer-input">Votre réponse :</label>
-            <input type="text" class="answer-input" id="answer-input" correct-answer="${question.correctAnswer}"></input>
+            <input autocomplete="off" type="text" class="answer-input" id="answer-input" correct-answer="${question.correctAnswer}"></input>
+            <p class="correct-answer-text">La bonne réponse est : ${question.correctAnswer}</p>
             <div class="quiz-utility-buttons-container">
                 <button class="quiz-utility-button" id="next-question" onclick="nextQuestion(quizData)"><p class="quiz-utility-button-text">Quest Suivante <i class="fa-solid fa-arrow-right"></i></p></button>
                 <button class="quiz-utility-button" id="submitt-answer" onclick="checkAnswer('', 'answer submitted')"><p class="quiz-utility-button-text">Valider Réponse</p></button>
@@ -148,7 +150,8 @@ function startTimer(duration) {
         const remainingTime = endTime - currentTime;
         if (hasAnswered) {
             clearInterval(timerInterval);
-            console.log("timer cleared")
+            console.log("timer cleared");
+            return;
         }
 
         if (remainingTime <= 0) {
@@ -173,7 +176,8 @@ function onCorrectAnswer() {
 function checkAnswer(button, trigger) {
     console.log("test, trigger : ", trigger, 
         "answer type : ", question.answerType, 
-        "has answered : ", hasAnswered)
+        "has answered : ", hasAnswered,
+        "question : ", question)
     
     if ((!button && question.answerType === "multipleOptions") || hasAnswered) {
         console.log("returning")
@@ -209,12 +213,12 @@ function checkAnswer(button, trigger) {
 
             else if (submittedAnswer === correctAnswer) {
                 onCorrectAnswer();
-                answerInput.classList.add('correct')
-                answerInput.value +='<i class="fa-regular fa-circle-check"></i>';
+                answerInput.classList.add('correct');
             }
 
             else {
-                answerInput.classList.add('incorrect')
+                answerInput.classList.add('incorrect');
+                document.getElementsByClassName('correct-answer-text')[0].classList.add('show')
             }
         }
 
@@ -257,9 +261,11 @@ function nextQuestion(data) {
     if (CurrentQuestion < NumberOfQuestions - 1) {
         CurrentQuestion++;
         const question_data = show_question(question_list, CurrentQuestion);
-        const question = question_data[1];
+        const question_element = question_data[1];
+        const question = question_data[2]
+        globalThis.question = question
         quizContainer.innerHTML = '';
-        quizContainer.appendChild(question);
+        quizContainer.appendChild(question_element);
         MathJax.typeset();
         canAnswer = true;
         startTimer(question_data[0]);

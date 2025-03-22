@@ -213,9 +213,10 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-height: 0px;
-    width: 100%;
-    transition: max-height 0.3s ease-in-out, transform 0.3s ease-in-out;
+    max-height: 0;
+    height: auto;
+    width: 526px;
+    transition: all 0.3s ease-in-out;
     overflow: hidden;
     transform: scaleY(0);
     transform-origin: top;
@@ -224,7 +225,7 @@ header {
 }
 
 .quiz-selection-container.selected .quiz-selection-info-container {
-    max-height : 125px;
+    max-height: 150px;
     transform: scaleY(1);
 }
 
@@ -254,6 +255,11 @@ header {
 
 .quiz-selection-start-button:hover i {
     animation: arrow-animation 0.75s infinite;   
+}
+
+.quiz-selection-description {
+    max-width: 520px;
+    margin: 0 9px;
 }
 
 /* quiz style */
@@ -363,9 +369,23 @@ header {
     border-color: green;
 }
 
+.answer-input.incorrect {
+    border-color: red;
+}
+
 label[for="answer-input"] {
     font-size: 1.3em;
     margin: 15px 5px;
+}
+
+.correct-answer-text {
+    font-size: 1em;
+    transform: scale(0);
+    transition: all 0.3s ease-out;
+}
+
+.correct-answer-text.show {
+    transform: scale(1);
 }
 
 /* Timer progress style */

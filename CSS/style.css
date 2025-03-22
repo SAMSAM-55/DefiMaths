@@ -339,6 +339,34 @@ header {
     visibility: visible;
 }
 
+/* Free answer style */
+
+.answer-input {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    height: 35px;
+    width: 250px;
+    background-image: element('<i class="fa-regular fa-circle-check"></i>');
+    background-color: var(--theme-button-color-hovered);
+    color: black;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    border: 3px solid var(--theme-button-color-selected);
+    border-radius: 4px;
+    margin: 10px 5px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.answer-input.correct {
+    border-color: green;
+}
+
+label[for="answer-input"] {
+    font-size: 1.3em;
+    margin: 15px 5px;
+}
 
 /* Timer progress style */
 

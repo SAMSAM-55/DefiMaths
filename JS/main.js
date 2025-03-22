@@ -72,7 +72,7 @@ function show_question(list, index) {
         questionElement.innerHTML = `
             <h2 class="main-question-text">Question ${index + 1}: ${question.question}</h2>
             <progress class="timer" id="timer" value="0" max="100"></progress>
-            <label for="answer-input">Votre réponse :</label><br>
+            <label for="answer-input">Votre réponse :</label>
             <input type="text" class="answer-input" id="answer-input" correct-answer="${question.correctAnswer}"></input>
             <div class="quiz-utility-buttons-container">
                 <button class="quiz-utility-button" id="next-question" onclick="nextQuestion(quizData)"><p class="quiz-utility-button-text">Quest Suivante <i class="fa-solid fa-arrow-right"></i></p></button>
@@ -146,6 +146,11 @@ function startTimer(duration) {
     timerInterval = setInterval(() => {
         const currentTime = Date.now();
         const remainingTime = endTime - currentTime;
+        if (hasAnswered) {
+            clearInterval(timerInterval);
+            console.log("timer cleared")
+        }
+
         if (remainingTime <= 0) {
             clearInterval(timerInterval);
             cancelAnimationFrame(animationFrameId);
@@ -156,6 +161,14 @@ function startTimer(duration) {
     }, 1000);
 }
 
+function onCorrectAnswer() {
+    IsLastAnswerCorrect = true;
+    answerStreak++;   
+    let timeRemaining = document.getElementById('timer').value/100;
+    score += (timeRemaining > 0.75 ? 10 : timeRemaining*10.25);
+    document.getElementById('score').innerHTML = lib.round(score, 1);
+}
+
 // Function for checking the answer
 function checkAnswer(button, trigger) {
     console.log("test, trigger : ", trigger, 
@@ -163,9 +176,7 @@ function checkAnswer(button, trigger) {
         "has answered : ", hasAnswered)
     
     if ((!button && question.answerType === "multipleOptions") || hasAnswered) {
-        show_answer();
-        hasAnswered = true;
-        console.log("No button found")
+        console.log("returning")
         return;
     }
 
@@ -177,11 +188,7 @@ function checkAnswer(button, trigger) {
         console.log("entered the answer submitted condition")
         if (question.answerType === "multipleOptions") {
             if (button.getAttribute('correct-answer') == 'true') {
-                IsLastAnswerCorrect = true;
-                answerStreak++;
-                let timeRemaining = document.getElementById('timer').value/100;
-                score += (timeRemaining > 0.75 ? 10 : timeRemaining*10.25);
-                updateScoreandQuestionLabels();
+                onCorrectAnswer();
                 show_answer();
             } else {
                 IsLastAnswerCorrect = false;
@@ -190,9 +197,25 @@ function checkAnswer(button, trigger) {
         }
 
         else if (question.answerType === "freeAnswer") {
-            const answerInput = document.getElementsByClassName('answer-input')[0]
-            const submittedAnswer = String(answerInput.value).toLowerCase
-            console.log(submittedAnswer)
+            const answerInput = document.getElementsByClassName('answer-input')[0];
+            const submittedAnswer = String(answerInput.value).toLowerCase();
+            const correctAnswer = String(answerInput.getAttribute('correct-answer')).toLowerCase();
+            console.log(submittedAnswer);
+            console.log(correctAnswer);
+
+            if (submittedAnswer === '') {
+                return;
+            }
+
+            else if (submittedAnswer === correctAnswer) {
+                onCorrectAnswer();
+                answerInput.classList.add('correct')
+                answerInput.value +='<i class="fa-regular fa-circle-check"></i>';
+            }
+
+            else {
+                answerInput.classList.add('incorrect')
+            }
         }
 
     }

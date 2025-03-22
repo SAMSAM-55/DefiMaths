@@ -1,8 +1,8 @@
 {
     "quizTitle": "Calcul mental : Racines, Fractions, Aires",
     "description": "Quiz de calcul mental comprenant la simplification de racines et de fractions ainsi que des calculs d'aires.",
-    "minQuestions": 100,
-    "maxQuestions": 100,
+    "minQuestions": 5,
+    "maxQuestions": 25,
     "questions": [
       {
         "question": "Simplifiez : $\\sqrt{4}$",

@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function show_question(list, index) {
     let question = list[index];
-    console.log("Question : ", question, " list : ", list, " index : ", index)
 
     if (!question || (!question.options && question.answerType === "multipleOptions") || !list[index]) {
         console.error('Question or options not found');
@@ -150,7 +149,6 @@ function startTimer(duration) {
         const remainingTime = endTime - currentTime;
         if (hasAnswered) {
             clearInterval(timerInterval);
-            console.log("timer cleared");
             return;
         }
 
@@ -174,13 +172,8 @@ function onCorrectAnswer() {
 
 // Function for checking the answer
 function checkAnswer(button, trigger) {
-    console.log("test, trigger : ", trigger, 
-        "answer type : ", question.answerType, 
-        "has answered : ", hasAnswered,
-        "question : ", question)
     
     if ((!button && question.answerType === "multipleOptions") || hasAnswered) {
-        console.log("returning")
         return;
     }
 
@@ -189,7 +182,6 @@ function checkAnswer(button, trigger) {
     }
     
     if (trigger == 'answer submitted') {
-        console.log("entered the answer submitted condition")
         if (question.answerType === "multipleOptions") {
             if (button.getAttribute('correct-answer') == 'true') {
                 onCorrectAnswer();
@@ -204,8 +196,6 @@ function checkAnswer(button, trigger) {
             const answerInput = document.getElementsByClassName('answer-input')[0];
             const submittedAnswer = String(answerInput.value).toLowerCase();
             const correctAnswer = String(answerInput.getAttribute('correct-answer')).toLowerCase();
-            console.log(submittedAnswer);
-            console.log(correctAnswer);
 
             if (submittedAnswer === '') {
                 return;

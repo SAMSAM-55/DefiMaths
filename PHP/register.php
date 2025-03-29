@@ -17,16 +17,19 @@ $create_account = "INSERT INTO `main` (user_name, email, password, progress) VAL
 
 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {} else {
     echo "<script type='text/javascript'>alert('Veuillez saisir un email valide');</script>";
+    header("Location: https://defimaths.net/register.html");
     exit();
 }
 
 if (preg_match("/^[a-zA-Z0-9-_]*$/", "$user_name")) {} else {
     echo "<script type='text/javascript'>alert('Le nom d utilisateur doit seulement contenir des tirets ou des underscore et des lettres ou chiffres');</script>";
+    header("Location: https://defimaths.net/register.html");
     exit();
 }
     
 if ($check_email_avalaible -> num_rows == 0) {} else {
     echo "<script type='text/javascript'>alert('Un compte existe déjà pour cet email');</script>";
+    header("Location: https://defimaths.net/register.html");
     exit();
 }
 
@@ -35,6 +38,7 @@ if ($conn -> query($create_account) === TRUE) {
     echo "<script type='text/javascript'>alert('Compte créé avec succès');</script>";
 } else {
     echo "<script type='text/javascript'>alert('Echec lors de la création du compte');</script>";
+    header("Location: https://defimaths.net/register.html");
 }
 
 ?>

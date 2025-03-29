@@ -16,8 +16,10 @@ $hashed_password = $response['password'];
 if (password_verify($password, $hashed_password)) {
     $message = "connexion...";
 } else {
-    $message = "<script type='text/javascript'>alert('Le mot de passe ou l email saisi est incorrect');</script>";
-    header("Location: https://defimaths.net/login.html");
+    echo "<script type='text/javascript'>
+        alert('Identifiant ou mot de passe incorrect.');
+        window.location.href = 'https://defimaths.net/login.html';
+    </script>";
 }
 
 $user = $response;

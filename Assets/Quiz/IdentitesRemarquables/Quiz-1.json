@@ -2,7 +2,7 @@
     "quizTitle": "Identités Remarquables - Développement",
     "description": "Développez chaque expression en choisissant la bonne option.",
     "minQuestions": 5,
-    "maxQuestions" : 25,
+    "maxQuestions": 25,
     "quizID": 1,
     "questions": [
         {
@@ -14,7 +14,7 @@
                 "$x^2 + 2$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -26,7 +26,7 @@
                 "$x^2 - 2x - 1$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -38,7 +38,7 @@
                 "$x^2 + 2x + 2$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -50,7 +50,7 @@
                 "$x^2 - 2x + 4$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -62,7 +62,7 @@
                 "$2x^2 + 4x + 1$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -74,7 +74,7 @@
                 "$4x^2 - 4x - 1$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -86,7 +86,7 @@
                 "$4x^2 + 3x + 9$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -98,7 +98,7 @@
                 "$4x^2 - 3x + 9$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -110,7 +110,7 @@
                 "$9x^2 + x + 1$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -122,7 +122,7 @@
                 "$9x^2 - 6x - 1$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -134,7 +134,7 @@
                 "$9x^2 + 8x + 4$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -146,7 +146,7 @@
                 "$9x^2 - 8x + 4$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -158,7 +158,7 @@
                 "$16x^2 + x + 1$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -170,7 +170,7 @@
                 "$16x^2 - 8x - 1$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -182,7 +182,7 @@
                 "$16x^2 + 18x + 9$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -194,7 +194,7 @@
                 "$16x^2 - 18x + 9$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -206,7 +206,7 @@
                 "$x^2 + 9$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -218,7 +218,7 @@
                 "$x^2 - 6x - 9$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -230,7 +230,7 @@
                 "$x^2 + 16$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -242,7 +242,7 @@
                 "$x^2 - 8x - 16$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -254,7 +254,7 @@
                 "$x^2 - x$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -266,7 +266,7 @@
                 "$x^2 - 8$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -278,7 +278,7 @@
                 "$x^2 - 6$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -290,7 +290,7 @@
                 "$x^2 - 12$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -302,7 +302,7 @@
                 "$2x^2 - 1$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -314,7 +314,7 @@
                 "$4x^2 - 3$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -326,7 +326,7 @@
                 "$3x^2 - 1$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -338,7 +338,7 @@
                 "$3x^2 - 4$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -350,7 +350,7 @@
                 "$4x^2 - 1$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -362,7 +362,7 @@
                 "$4x^2 - 9$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -374,7 +374,7 @@
                 "$2x^2 + 20x + 25$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -386,7 +386,7 @@
                 "$4x^2 - 20x - 25$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -398,7 +398,7 @@
                 "$9x^2 + 18x + 16$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -410,7 +410,7 @@
                 "$9x^2 - 18x + 16$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -422,7 +422,7 @@
                 "$16x^2 + 30x + 25$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -434,7 +434,7 @@
                 "$16x^2 - 40x - 25$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -446,7 +446,7 @@
                 "$5x^2 + 10x + 1$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -458,7 +458,7 @@
                 "$25x^2 - 10x - 1$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -470,7 +470,7 @@
                 "$5x^2 + 20x + 4$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -482,7 +482,7 @@
                 "$25x^2 - 20x - 4$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -494,7 +494,7 @@
                 "$25x^2 + 20x + 9$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -506,7 +506,7 @@
                 "$25x^2 - 30x - 9$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -518,7 +518,7 @@
                 "$36x^2 + x + 1$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -530,7 +530,7 @@
                 "$36x^2 - 12x - 1$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -542,7 +542,7 @@
                 "$36x^2 + 2x + 4$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -554,7 +554,7 @@
                 "$36x^2 - 2x + 4$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -566,7 +566,7 @@
                 "$36x^2 + 30x + 9$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -578,7 +578,7 @@
                 "$36x^2 - 30x + 9$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -590,7 +590,7 @@
                 "$x^2 + 36$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -602,7 +602,7 @@
                 "$x^2 - 12x - 36$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -614,7 +614,7 @@
                 "$2x^2 - 25$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -626,7 +626,7 @@
                 "$3x^2 - 25$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -638,7 +638,7 @@
                 "$4x^2 - 25$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -650,7 +650,7 @@
                 "$5x^2 - 16$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -662,7 +662,7 @@
                 "$5x^2 - 36$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -674,7 +674,7 @@
                 "$6x^2 - 25$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -686,7 +686,7 @@
                 "$6x^2 - 49$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -698,7 +698,7 @@
                 "$49x^2 + x + 1$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -710,7 +710,7 @@
                 "$49x^2 - 14x - 1$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -722,7 +722,7 @@
                 "$49x^2 + 20x + 4$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -734,7 +734,7 @@
                 "$49x^2 - 28x - 4$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -746,7 +746,7 @@
                 "$49x^2 + 30x + 9$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -758,7 +758,7 @@
                 "$49x^2 - 30x + 9$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -770,7 +770,7 @@
                 "$49x^2 + 40x + 16$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -782,7 +782,7 @@
                 "$49x^2 - 56x - 16$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -794,7 +794,7 @@
                 "$49x^2 + 60x + 25$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -806,7 +806,7 @@
                 "$49x^2 - 70x - 25$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -818,7 +818,7 @@
                 "$49x^2 + 60x + 36$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -830,7 +830,7 @@
                 "$49x^2 - 84x - 36$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -842,7 +842,7 @@
                 "$64x^2 + x + 1$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -854,7 +854,7 @@
                 "$64x^2 - 16x - 1$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -866,7 +866,7 @@
                 "$64x^2 + 36x + 9$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -878,7 +878,7 @@
                 "$64x^2 - 36x + 9$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -890,7 +890,7 @@
                 "$64x^2 + 60x + 25$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -902,7 +902,7 @@
                 "$64x^2 - 80x - 25$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -914,7 +914,7 @@
                 "$64x^2 + 84x + 49$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -926,7 +926,7 @@
                 "$64x^2 - 112x - 49$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -938,7 +938,7 @@
                 "$4x^2 - 49$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -950,7 +950,7 @@
                 "$3x^2 - 49$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -962,7 +962,7 @@
                 "$2x^2 - 49$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -974,7 +974,7 @@
                 "$x^2 + 49$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -986,7 +986,7 @@
                 "$x^2 - 14x - 49$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -998,7 +998,7 @@
                 "$x^2 + 64$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -1010,7 +1010,7 @@
                 "$x^2 - 16x - 64$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -1022,7 +1022,7 @@
                 "$4x^2 + 16$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -1034,7 +1034,7 @@
                 "$4x^2 - 16x - 16$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -1046,7 +1046,7 @@
                 "$9x^2 + 30x + 36$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -1058,7 +1058,7 @@
                 "$9x^2 - 36x - 36$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -1070,7 +1070,7 @@
                 "$16x^2 + 30x + 36$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -1082,7 +1082,7 @@
                 "$16x^2 - 30x + 36$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -1094,7 +1094,7 @@
                 "$25x^2 + 60x + 64$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -1106,7 +1106,7 @@
                 "$25x^2 - 80x - 64$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -1118,7 +1118,7 @@
                 "$36x^2 + 70x + 49$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -1130,7 +1130,7 @@
                 "$36x^2 - 84x - 49$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -1142,7 +1142,7 @@
                 "$49x^2 + 84x + 64$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         },
         {
@@ -1154,7 +1154,7 @@
                 "$49x^2 - 112x - 64$"
             ],
             "correctAnswer": 1,
-            "time": 15,
+            "time": 37.5,
             "answerType": "multipleOptions"
         },
         {
@@ -1166,7 +1166,7 @@
                 "$64x^2 + 100x + 81$"
             ],
             "correctAnswer": 1,
-            "time": 16,
+            "time": 40,
             "answerType": "multipleOptions"
         },
         {
@@ -1178,7 +1178,7 @@
                 "$64x^2 - 144x - 81$"
             ],
             "correctAnswer": 1,
-            "time": 17,
+            "time": 42.5,
             "answerType": "multipleOptions"
         },
         {
@@ -1190,7 +1190,7 @@
                 "$81x^2 + 2x + 4$"
             ],
             "correctAnswer": 1,
-            "time": 18,
+            "time": 45,
             "answerType": "multipleOptions"
         },
         {
@@ -1202,7 +1202,7 @@
                 "$81x^2 - 36x - 4$"
             ],
             "correctAnswer": 1,
-            "time": 19,
+            "time": 47.5,
             "answerType": "multipleOptions"
         }
     ]

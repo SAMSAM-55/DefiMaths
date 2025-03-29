@@ -7,6 +7,7 @@ $user_name = $_REQUEST['user-name'];
 
 if (empty("$email") || empty("$password") || empty("$user_name")) {
     echo "<script type='text/javascript'>alert('Tous les champs ne sont pas rempli');</script>";
+    header("Location: https://defimaths.net/register.html");
     exit();
 }
 

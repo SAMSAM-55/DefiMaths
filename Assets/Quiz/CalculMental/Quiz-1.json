@@ -3,6 +3,7 @@
     "description": "Quiz de calcul mental comprenant la simplification de racines et de fractions ainsi que des calculs d'aires.",
     "minQuestions": 5,
     "maxQuestions": 25,
+    "quizID": 3,
     "questions": [
       {
         "question": "Simplifiez : $\\sqrt{4}$",

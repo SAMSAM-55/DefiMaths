@@ -3,6 +3,7 @@
     "description": "Développez chaque expression en choisissant la bonne option.",
     "minQuestions": 5,
     "maxQuestions" : 25,
+    "quizID": 1,
     "questions": [
         {
             "question": "Développez l'expression $(x+1)^2$.",

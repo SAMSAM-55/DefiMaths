@@ -105,6 +105,18 @@ header {
     margin : 10px
 }
 
+.account-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+}
+
+.account-info .header-text {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
 /* presentation texts style */
 
 .page-presentation {
@@ -225,7 +237,7 @@ header {
 }
 
 .quiz-selection-container.selected .quiz-selection-info-container {
-    max-height: 150px;
+    max-height: 190px;
     transform: scaleY(1);
 }
 

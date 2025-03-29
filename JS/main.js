@@ -242,6 +242,7 @@ function show_answer() {
 
 // Function for going to the next question
 function nextQuestion(data) {
+    console.log("Data : ", data)
 
     if (!hasAnswered) {
         return;        
@@ -271,7 +272,7 @@ function nextQuestion(data) {
                 <p class="max-score-text"> / ${NumberOfQuestions*10} </p>
             </span>
         </span>`;
-        lib.animate_score(score, NumberOfQuestions*10);
+        lib.animate_score(score, NumberOfQuestions*10, data);
     }
 }
 

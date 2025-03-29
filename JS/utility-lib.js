@@ -1,4 +1,5 @@
 import * as api from './load-api.js';
+import * as user from './user-information.js';
 
 function get_score_digits_number(score) {
     const number = score - (score%1);
@@ -37,6 +38,21 @@ function play_animation(score) {
 }, 100);
 }
 
+async function update_progress(score, data) {
+    const progress = round(score*1.1 / (data.maxQuestions / 10), 1);
+    const current_progress = await user.get_user_progress(data.quizID)/10;
+
+    if (progress > current_progress) {
+        user.update_user_progress(data.quizID, progress*10).then((response) => {
+            if (response) {
+                console.log("Progress updated successfully:", response);
+            } else {
+                console.error("Failed to update progress.");
+            }
+        });
+    }
+}
+
 // Function used to round the score to one digit
 export function round(value, precision) {
     var multiplier = Math.pow(10, precision || 0);
@@ -66,7 +82,7 @@ export function shuffleArray(array) {
 }
 
 // Function for animating the score at the end of the quiz
-export function animate_score(score, maxScore) {
+export async function animate_score(score, maxScore, data) {
     console.log("Animated score : ", score);
 
     const score_digit_component = document.getElementsByClassName('score-decimal-digit')[0];
@@ -112,9 +128,13 @@ export function animate_score(score, maxScore) {
         origin: { y: 0.6 }
       });
     }
+
+    update_progress(score, data).then(() => {;
+        console.log("Progress updated.");
+    });
 }
 
-function add_slection_settings(container, data, path) {
+async function add_slection_settings(container, data, path) {
     let info_container = document.createElement('div');
         info_container.classList.add('quiz-selection-info-container');
         container.appendChild(info_container);
@@ -147,6 +167,24 @@ function add_slection_settings(container, data, path) {
             slider_label.htmlFor = 'question-number-slider';
             slider_label.innerHTML = `Nombre de questions : ${slider_value}`;
             settings_container.appendChild(slider_label);
+    
+    let quiz_progress = document.createElement('p');
+            console.log("Quiz ID : ", data.quizID);
+            const loged_in = user.get_is_loged_in() === 'true';
+            const progress = await user.get_user_progress(data.quizID)/10;
+            let shown_progress = `Progression : ${progress}%`;
+
+            if (!loged_in || loged_in == null || loged_in == undefined) {
+                shown_progress = "Veuillez vous connecter pour voir votre progression";
+            }
+            
+            if (progress != null) {
+                quiz_progress.innerHTML = shown_progress;
+            } else {
+                quiz_progress.innerHTML = `Progression : 0%`;
+            }
+            quiz_progress.classList.add('quiz-selection-progress');
+            info_container.appendChild(quiz_progress);
 
     let start_button = document.createElement('button');
             start_button.innerHTML = `Commencer<i class="fa-solid fa-arrow-right"></i>`;

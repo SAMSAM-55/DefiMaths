@@ -115,6 +115,7 @@ header {
 .account-info .header-text {
     font-size: 1.2em;
     margin-right: 10px;
+    text-transform: none;
 }
 
 /* Register and login style */

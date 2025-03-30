@@ -156,7 +156,6 @@ async function add_slection_settings(container, data, path) {
             slider.step = '1';
             slider.classList.add('slider');
             slider.id = 'question-number-slider';
-            settings_container.appendChild(slider);
     
     let slider_label = document.createElement('label');
             var slider_value = slider.value;
@@ -167,6 +166,7 @@ async function add_slection_settings(container, data, path) {
             slider_label.htmlFor = 'question-number-slider';
             slider_label.innerHTML = `Nombre de questions : ${slider_value}`;
             settings_container.appendChild(slider_label);
+            settings_container.appendChild(slider);
     
     let quiz_progress = document.createElement('p');
             console.log("Quiz ID : ", data.quizID);

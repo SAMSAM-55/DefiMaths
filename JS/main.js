@@ -57,14 +57,33 @@ function show_question(list, index) {
                 `).join('')}
             </ul>
             <div class="quiz-utility-buttons-container">
-                <button class="quiz-utility-button" id="next-question" onclick="nextQuestion(quizData)"><p class="quiz-utility-button-text">Quest Suivante <i class="fa-solid fa-arrow-right"></i></p></button>
-                <button class="quiz-utility-button" id="submitt-answer" onclick="checkAnswer(globalThis.selectedAnswer, 'answer submitted')"><p class="quiz-utility-button-text">Valider Réponse</p></button>
             </div>
             <div class="quiz-score-container">
                 <p class="quiz-score-text">Score: <span id="score">0</span></p>
                 <p class="quiz-question-text">Question: <span id="question-index">0</span></p>    
             </div>
         `;
+
+        if (index+1 == NumberOfQuestions) {
+            questionElement.querySelector('.quiz-utility-buttons-container').innerHTML = `
+                <button class="quiz-utility-button" id="finish-quiz" onclick="nextQuestion(quizData)">
+                <p class="quiz-utility-button-text">Résultats <i class="fa-solid fa-arrow-right"></i></p>
+                <button class="quiz-utility-button" id="submit-answer" onclick="checkAnswer(globalThis.selectedAnswer, 'answer submitted')">
+                <p class="quiz-utility-button-text">Valider</p>
+                </button>
+                </button>
+            `;
+        } else {
+            questionElement.querySelector('.quiz-utility-buttons-container').innerHTML = `
+                <button class="quiz-utility-button" id="next-question" onclick="nextQuestion(quizData)">
+                <p class="quiz-utility-button-text">Question Suivante <i class="fa-solid fa-arrow-right"></i></p>
+                </button>
+                <button class="quiz-utility-button" id="submit-answer" onclick="checkAnswer(globalThis.selectedAnswer, 'answer submitted')">
+                <p class="quiz-utility-button-text">Valider</p>
+                </button>
+            `;
+        }
+
         return [question.time*1000, questionElement, question];
     }
 
@@ -76,14 +95,33 @@ function show_question(list, index) {
             <input autocomplete="off" type="text" class="answer-input" id="answer-input" correct-answer="${question.correctAnswer}"></input>
             <p class="correct-answer-text">La bonne réponse est : ${question.correctAnswer}</p>
             <div class="quiz-utility-buttons-container">
-                <button class="quiz-utility-button" id="next-question" onclick="nextQuestion(quizData)"><p class="quiz-utility-button-text">Quest Suivante <i class="fa-solid fa-arrow-right"></i></p></button>
-                <button class="quiz-utility-button" id="submitt-answer" onclick="checkAnswer('', 'answer submitted')"><p class="quiz-utility-button-text">Valider Réponse</p></button>
             </div>
             <div class="quiz-score-container">
                 <p class="quiz-score-text">Score: <span id="score">0</span></p>
                 <p class="quiz-question-text">Question: <span id="question-index">0</span></p>    
             </div>
         `;
+
+        if (index+1 == NumberOfQuestions) {
+            questionElement.querySelector('.quiz-utility-buttons-container').innerHTML = `
+                <button class="quiz-utility-button" id="finish-quiz" onclick="nextQuestion(quizData)">
+                <p class="quiz-utility-button-text">Résultats <i class="fa-solid fa-arrow-right"></i></p>
+                </button>
+                <button class="quiz-utility-button" id="submit-answer" onclick="checkAnswer('', 'answer submitted')">
+                <p class="quiz-utility-button-text">Valider</p>
+                </button>
+            `;
+        } else {
+            questionElement.querySelector('.quiz-utility-buttons-container').innerHTML = `
+                <button class="quiz-utility-button" id="next-question" onclick="nextQuestion(quizData)">
+                <p class="quiz-utility-button-text">Question Suivante <i class="fa-solid fa-arrow-right"></i></p>
+                </button>
+                <button class="quiz-utility-button" id="submit-answer" onclick="checkAnswer('placeholder', 'answer submitted')">
+                <p class="quiz-utility-button-text">Valider</p>
+                </button>
+            `;
+        }
+
         return[question.time*1000, questionElement, question]
     }
 }
@@ -138,7 +176,7 @@ function startTimer(duration) {
             clearInterval(timerInterval);
             cancelAnimationFrame(animationFrameId);
             timerElement.value = 0;
-            checkAnswer(selectedAnswer, 'timer end');
+            checkAnswer((globalThis.question.answerType === "multipleOptions" ? globalThis.selectedAnswer : globalThis.selectedAnswer ?? 'placeholder'), 'timer end');
         }
     }
 
@@ -157,7 +195,7 @@ function startTimer(duration) {
             cancelAnimationFrame(animationFrameId);
             timerElement.value = 0;
             canAnswer = false;
-            checkAnswer(selectedAnswer, 'timer end');
+            checkAnswer((globalThis.question.answerType === "multipleOptions" ? globalThis.selectedAnswer : globalThis.selectedAnswer ?? 'placeholder'), 'timer end');
         }
     }, 1000);
 }
@@ -166,22 +204,31 @@ function onCorrectAnswer() {
     IsLastAnswerCorrect = true;
     answerStreak++;   
     let timeRemaining = document.getElementById('timer').value/100;
-    score += (timeRemaining > 0.75 ? 10 : timeRemaining*10.25);
+    score += (timeRemaining > 0.75 ? 10 : (timeRemaining+0.25)*10);
     document.getElementById('score').innerHTML = lib.round(score, 1);
 }
 
 // Function for checking the answer
 function checkAnswer(button, trigger) {
+    console.log("Button : ", button)
+    console.log("Trigger : ", trigger)
+    console.log("Question : ", question)
     
-    if ((!button && question.answerType === "multipleOptions") || hasAnswered) {
+    if ((button === null && question.answerType === "multipleOptions" && trigger != 'timer end') || hasAnswered) {
+        console.log("Answer already submitted or no button clicked");
         return;
     }
 
-    if (trigger == 'timer end') {
+    if (trigger == 'timer end' && button === null && question.answerType === "multipleOptions") {
+        console.log("Timer ended");
         show_answer();
+        canAnswer = false;
+        hasAnswered = true;
+        return;
     }
     
-    if (trigger == 'answer submitted') {
+    if (trigger == 'answer submitted' || trigger == 'timer end' && button !== null) {
+        console.log("Answer submitted");
         if (question.answerType === "multipleOptions") {
             if (button.getAttribute('correct-answer') == 'true') {
                 onCorrectAnswer();
@@ -197,7 +244,10 @@ function checkAnswer(button, trigger) {
             const submittedAnswer = String(answerInput.value).toLowerCase();
             const correctAnswer = String(answerInput.getAttribute('correct-answer')).toLowerCase();
 
-            if (submittedAnswer === '') {
+            console.log("Submitted answer: ", submittedAnswer);
+            console.log("Correct answer: ", correctAnswer);
+
+            if (submittedAnswer === '' && trigger != 'timer end') {
                 return;
             }
 
@@ -261,6 +311,8 @@ function nextQuestion(data) {
         canAnswer = true;
         startTimer(question_data[0]);
         updateScoreandQuestionLabels();
+        globalThis.selectedAnswer = null;
+        selectedAnswer = null;
 
     } else {
         quizContainer.innerHTML = `<h2>Fin du quiz!</h2>
@@ -282,21 +334,17 @@ function updateScoreandQuestionLabels() {
 }
 
 document.addEventListener('click', (event) => {
-    if ((event.target.classList.contains('quiz-answer-button') || event.target.classList.contains('answer-button-text')) && canAnswer) {
-        selectedAnswer = event.target;
-        globalThis.selectedAnswer = selectedAnswer
+    const btn = event.target.closest('.quiz-answer-button');
+    if (btn && canAnswer) {
+        selectedAnswer = btn;
+        globalThis.selectedAnswer = selectedAnswer;
         clearInterval(timerInterval);
-
-        const btn = event.target.classList.contains('quiz-answer-button')
-          ? event.target
-          : event.target.closest('.quiz-answer-button');
-
+        console.log("Event target : ", event.target);
+        console.log("Button : ", btn);
         document.querySelectorAll('.quiz-answer-button').forEach((button) => {
             button.classList.remove('selected');
         });
         btn.classList.add('selected');
-
-    } else if ((event.target.classList.contains('quiz-answer-button') || event.target.classList.contains('answer-button-text')) && !canAnswer) {
     }
 });
 

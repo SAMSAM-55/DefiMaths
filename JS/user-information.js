@@ -28,6 +28,18 @@ export function get_is_loged_in() {
     return sessionStorage.getItem('loged_in');
 }
 
+export function log_out() {
+    user_email = null;
+    user_name = null;
+    user_progress = null;
+    user_id = null;
+    isLogedIn = false;
+    sessionStorage.removeItem('loged_in');
+    sessionStorage.removeItem('user_email');
+    sessionStorage.removeItem('user_name');
+    sessionStorage.removeItem('user_id');
+}
+
 export async function get_user_progress(quiz_id) {
     const php_inputs = {
         "user-id": parseInt(sessionStorage.getItem('user_id')),

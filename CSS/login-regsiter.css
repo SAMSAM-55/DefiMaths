@@ -159,6 +159,28 @@ header {
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+.form-item div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-item div input {
+    padding: 2px;
+    border: 2px solid var(--theme-button-color-selected);
+    outline: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: var(--theme-button-color-hovered);
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 285px;
+}
+
+.form-item div i {
+    cursor: pointer;
+}
+
 .submit-button {
     background-color: var(--theme-button-color-normal);
     color: white;

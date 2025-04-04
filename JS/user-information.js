@@ -42,9 +42,13 @@ export function log_out() {
 }
 
 export async function delete_account() {
+    
+    
     const php_inputs = {
         "user-id": parseInt(sessionStorage.getItem('user_id'))
     };
+
+    log_out();
 
     try {
         const response = await fetch('/PHP/delete-user-account.php', {

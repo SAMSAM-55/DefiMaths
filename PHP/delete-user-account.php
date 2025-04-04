@@ -10,9 +10,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $user_id = $user['user-id'];
         $conn = new mysqli($server_name, $id, $database_password, $database_name);
-        $req = "DELETE FROM `main` WHERE `main`.`id` = $user_id"
+        $req = "DELETE FROM `main` WHERE `main`.`id` = $user_id";
 
-        $conn -> query($req);
+        if ($conn -> query($req)) {
+            $conn -> close();
+            exit(0);
+        } else {
+            $conn -> close();
+            exit(1);
+        }
     }
 }
 

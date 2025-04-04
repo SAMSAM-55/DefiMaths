@@ -16,6 +16,14 @@
             addEventListener('DOMContentLoaded', async () => {;
                 document.getElementById('user-name').value = user.get_user_name();
                 document.getElementById('email').value = user.get_user_email();
+
+                addEventListener('click', (event) => {
+                    if (event.target.id === 'log-out') {
+                        user.log_out();
+                    } else if (event.target.id === 'delete-account') {
+                        user.delete_account();
+                    }
+                })
             });
         </script>
     </head>

@@ -55,7 +55,7 @@
 .profile-actions-container button {
     background-color: var(--theme-background-color);
     color: white;
-    width: 250px;
+    width: 100%;
     font-size: 1.2em;
     font-weight: bold;
     text-transform: uppercase;
@@ -68,4 +68,18 @@
     border-radius: 5px;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
+}
+
+.profile-actions-container button:hover {
+    background-color: red;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.profile-actions-container button i {
+    margin-left: 5px;
+}
+
+.profile-actions-container button:hover i {
+    animation: icon-animation 1.5s infinite;
 }

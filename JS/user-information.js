@@ -38,6 +38,32 @@ export function log_out() {
     sessionStorage.removeItem('user_email');
     sessionStorage.removeItem('user_name');
     sessionStorage.removeItem('user_id');
+    window.location.href = "index.html";
+}
+
+export async function delete_account() {
+    const php_inputs = {
+        "user-id": parseInt(sessionStorage.getItem('user_id'))
+    };
+
+    try {
+        const response = await fetch('/PHP/delete-user-account.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(php_inputs)
+        });
+
+        if (!response.ok) {
+            console.error("An error occured during the request : ", response.statusText);
+            return;
+        }
+
+    } catch (error) {
+        console.error("Error with fetch request : ", error)
+        return;
+    }
 }
 
 export async function get_user_progress(quiz_id) {

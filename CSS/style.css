@@ -561,3 +561,15 @@ label[for="answer-input"] {
 .quiz-main h2 {
     text-align: center;
 }
+
+/* Link to my github page */
+
+footer {
+    margin-top: 100px;
+}
+
+footer p{
+    text-align: center;
+    font-size: 15px;
+    text-decoration: none;
+}

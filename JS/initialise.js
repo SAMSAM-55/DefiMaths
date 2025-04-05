@@ -1,5 +1,6 @@
 import { initialise_user_infos } from './user-information.js';
 import { get_is_loged_in } from './user-information.js';
+import { update_header } from './update-header.js';
 
 function get_url_param(param) {
     let params = new URLSearchParams(window.location.search);
@@ -39,6 +40,7 @@ async function main() {
                 document.getElementById('user-name-text').innerHTML = `<i class="fa-solid fa-user"></i> ${data.user_name}`;
                 initialise_user_infos(data);
                 console.log("Data received:", data);
+                update_header();
             } else {
                 console.error("Invalid data received:", data);
             }

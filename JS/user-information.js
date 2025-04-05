@@ -43,6 +43,9 @@ export function log_out() {
 
 export async function delete_account() {
     
+    if (!window.confirm("Voulez-vous vraiment supprimer votre compte ?")) {
+        return;
+    }
     
     const php_inputs = {
         "user-id": parseInt(sessionStorage.getItem('user_id'))

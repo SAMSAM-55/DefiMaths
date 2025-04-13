@@ -18,15 +18,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         WHERE id = $user_id;";
 
         if ($conn -> query($req)) {
-            echo json_encode(["result" => "Updated quiz progress successfuly"]);
+            echo json_encode(["type" => "info", "title" => "Mise à jour de la progression", "message" => "Votre progression sur ce quiz a bien été mise à jour."]);
             exit(0);
         } else {
-            echo json_encode(["error" => "Error updating quiz progress"]);
+            echo json_encode(["type" => "error", "title" => "Mise à jour de la progression", "message" => "Une erreur est survenue lors d la mise à jour de votre progression."]);
             exit(1);
         }
 
     } else {
-        echo json_encode(["error" => "No ID found"]);
+        echo json_encode(["type" => "error", "title" => "Erreur", "message" => "Utilisateur introuvable."]);
         exit(1);
     }
 }

@@ -7,10 +7,21 @@
     <link rel="icon" type="image/x-icon" href="Assets/Logo/SiteLogo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/user-feedback.css">
     <script type="module" src="JS/initialise.js"></script>
     <script type="module" src="JS/update-header.js"></script>
+    <script type="module" src="JS/toast.js"></script>
 </head>
 <body>
+    <!-- Adding the toast notifications elements -->
+    <div id="toast" class="feedback-container warning" style="display: none;">
+        <div class="toast-image">
+            <i class="fas"></i>
+        </div>
+        <div class="toast-content">
+        </div>
+    </div>
+    <!-- Main page -->
     <header class="header">
         <div class="header-logo">
             <img src="Assets/Logo/SiteLogo.png" alt="Logo" class="logo">

@@ -45,11 +45,16 @@ async function update_progress(score, data) {
     if (progress > current_progress) {
         user.update_user_progress(data.quizID, progress*10).then((response) => {
             if (response) {
-                console.log("Progress updated successfully:", response);
+                const toast_infos = JSON.parse(response);
+                show_toast(toast_infos.title, toast_infos.message, toast_infos.type);
             } else {
                 console.error("Failed to update progress.");
             }
-        });
+        })
+        .catch((error) => {
+            console.error("Error updating progress:", error);
+            show_toast("Erreur", "Une erreur est survenue lors de la mise à jour.", "error");
+        });;
     }
 }
 
@@ -237,4 +242,35 @@ export function show_available_quiz() {
         quiz_selector_list.appendChild(selector_container);
     }
 
+}
+
+export function show_toast(title, message, type = 'warning') {
+    const toast = document.getElementById('toast');
+    toast.className = `feedback-container ${type}`;
+    toast.querySelector('.toast-image').getElementsByClassName('fas')[0].className = 
+    `fas ${type === 'success' ? 'fa-circle-check' : 
+        type === 'error' ? 'fa-circle-xmark' :
+        type === 'warning' ? 'fa-circle-exclamation' : 'fa-circle-info'}`
+    toast.querySelector('.toast-content').innerHTML = `
+    <p class="toast-title">${title}</p>
+    <p class="feedback-message">${message}</p>
+    `;
+
+    // Show the toast
+    toast.style.display = 'flex';
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 10); // Small delay to allow the browser to render the element
+
+    // Hide the toast after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        toast.classList.add('hide');
+
+        // Remove the toast from view after the fade-out transition
+        setTimeout(() => {
+            toast.style.display = 'none';
+            toast.classList.remove('hide');
+        }, 750); // Match the CSS transition duration
+    }, 3000);
 }

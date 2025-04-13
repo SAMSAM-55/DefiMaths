@@ -4,6 +4,18 @@ let user_progress = null;
 let user_id = null;
 let isLogedIn = false;
 
+function reset_user_infos() {
+    user_email = null;
+    user_name = null;
+    user_progress = null;
+    user_id = null;
+    isLogedIn = false;
+    sessionStorage.removeItem('loged_in');
+    sessionStorage.removeItem('user_email');
+    sessionStorage.removeItem('user_name');
+    sessionStorage.removeItem('user_id');
+}
+
 export function initialise_user_infos(data) {
     user_email = data.email;
     user_name = data.user_name;
@@ -29,16 +41,20 @@ export function get_is_loged_in() {
 }
 
 export function log_out() {
-    user_email = null;
-    user_name = null;
-    user_progress = null;
-    user_id = null;
-    isLogedIn = false;
-    sessionStorage.removeItem('loged_in');
-    sessionStorage.removeItem('user_email');
-    sessionStorage.removeItem('user_name');
-    sessionStorage.removeItem('user_id');
-    window.location.href = "index.html";
+    // Reset user information
+    reset_user_infos();
+
+    // Toast notification details
+    const toast_title = 'Déconnexion réussie';
+    const toast_message = 'Vous avez bien été déconnecté';
+    const url = new URL(window.location.origin + '/index.html'); // Dynamically construct the URL
+    url.searchParams.append('toast', 'true');
+    url.searchParams.append('toast-type', 'info');
+    url.searchParams.append('toast-title', toast_title);
+    url.searchParams.append('toast-message', toast_message);
+
+    // Redirect to the index page with toast parameters
+    window.location.href = url.toString();
 }
 
 export async function delete_account() {
@@ -63,12 +79,53 @@ export async function delete_account() {
         });
 
         if (!response.ok) {
+
             console.error("An error occured during the request : ", response.statusText);
+
+            // Toast notification details
+            const toast_title = 'Erreur';
+            const toast_message = 'Une erreur interne est survenue lors de la suppression du compte';
+            const url = new URL(window.location.origin + '/index.html'); // Dynamically construct the URL
+            url.searchParams.append('toast', 'true');
+            url.searchParams.append('toast-type', 'error');
+            url.searchParams.append('toast-title', toast_title);
+            url.searchParams.append('toast-message', toast_message);
+
+            // Redirect to the index page with toast parameters
+            window.location.href = url.toString();
+
+            return;
+        } else {
+            // Toast notification details
+            const toast_title = 'Compte supprimé';
+            const toast_message = 'Votre compte a bien été suppprimé de DéfiMaths';
+            const url = new URL(window.location.origin + '/index.html'); // Dynamically construct the URL
+            url.searchParams.append('toast', 'true');
+            url.searchParams.append('toast-type', 'success');
+            url.searchParams.append('toast-title', toast_title);
+            url.searchParams.append('toast-message', toast_message);
+
+            // Redirect to the index page with toast parameters
+            window.location.href = url.toString();
+
             return;
         }
 
     } catch (error) {
-        console.error("Error with fetch request : ", error)
+        console.error("Error with fetch request : ", error);
+
+        // Toast notification details
+        const toast_title = 'Erreur';
+        const toast_message = 'Une erreur interne est survenue lors de la suppression du compte';
+        const url = new URL(window.location.origin + '/index.html'); // Dynamically construct the URL
+        url.searchParams.append('toast', 'true');
+        url.searchParams.append('toast-type', 'error');
+        url.searchParams.append('toast-title', toast_title);
+        url.searchParams.append('toast-message', toast_message);
+
+        // Redirect to the index page with toast parameters
+        window.location.href = url.toString();
+
         return;
     }
 }

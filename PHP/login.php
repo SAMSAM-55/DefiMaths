@@ -14,18 +14,24 @@ $response = $result->fetch_assoc();
 $hashed_password = $response['password'];
 
 if (password_verify($password, $hashed_password)) {
-    $message = "connexion...";
-} else {
+    $user = $response;
+    $toast_type = 'success';
+    $toast_title = 'Connexion réussie';
+    $toast_message = 'Vous avez bien été connecté à votre compte.';
+    $conn->close();
     echo "<script type='text/javascript'>
-        alert('Identifiant ou mot de passe incorrect.');
-        window.location.href = 'https://defimaths.net/login.html';
+        window.location.href = 'https://defimaths.net/index.html?userid=" . urlencode($user['id']) .  "&toast=" . urlencode('true') . "&toast-type=" . urlencode($toast_type) . "&toast-title=" . urlencode($toast_title) . "&toast-message=" . urlencode($toast_message) . "';
+    </script>";
+} else {
+    $toast_type = 'error';
+    $toast_title = 'Erreur';
+    $toast_message = 'Mot de passe ou email invalide.';
+    $conn->close();
+    echo "<script type='text/javascript'>
+        window.location.href = 'https://defimaths.net/login.html?email=" . urlencode($email) . "&toast=" . urlencode('true') . "&toast-type=" . urlencode($toast_type) . "&toast-title=" . urlencode($toast_title) . "&toast-message=" . urlencode($toast_message) . "';
     </script>";
 }
 
 $user = $response;
-header("Location: https://defimaths.net/index.html?userid=" . urlencode($user['id']));
-$conn->close();
 exit();
-
-echo $message;
 ?>

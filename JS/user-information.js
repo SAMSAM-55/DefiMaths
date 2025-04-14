@@ -1,48 +1,42 @@
-let user_email = null;
-let user_name = null;
-let user_progress = null;
-let user_id = null;
-let isLogedIn = false;
+async function get_user_info() {
+    try {
+        const response = await fetch('/PHP/get-user-data.php', {
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            method: 'POST',
+        });
 
-function reset_user_infos() {
-    user_email = null;
-    user_name = null;
-    user_progress = null;
-    user_id = null;
-    isLogedIn = false;
-    sessionStorage.removeItem('loged_in');
-    sessionStorage.removeItem('user_email');
-    sessionStorage.removeItem('user_name');
-    sessionStorage.removeItem('user_id');
+        if (!response.ok) {
+            console.error('Something went wrong, response:', response);
+            return;
+        }
+
+        const data = await response.json();
+        return data;
+
+    } catch (error) {
+        console.error("An error occurred while fetching user data:", error);
+    }
 }
 
-export function initialise_user_infos(data) {
-    user_email = data.email;
-    user_name = data.user_name;
-    user_progress = data.progress;
-    user_id = data.id;
-    isLogedIn = true;
-    sessionStorage.setItem('loged_in', isLogedIn);
-    sessionStorage.setItem('user_email', user_email);
-    sessionStorage.setItem('user_name', user_name);
-    sessionStorage.setItem('user_id', user_id);
+export async function get_is_logged_in() {
+    const userInfo = await get_user_info();
+    return userInfo ? userInfo.logged_in : "false";
 }
 
-export function get_user_email() {
-    return sessionStorage.getItem('user_email');
+export async function get_user_email() {
+    const userInfo = await get_user_info();
+    return userInfo ? userInfo.user_email : null;
 }
 
-export function get_user_name() {
-    return sessionStorage.getItem('user_name');
-}
-
-export function get_is_loged_in() {
-    return sessionStorage.getItem('loged_in');
+export async function get_user_name() {
+    const userInfo = await get_user_info();
+    return userInfo ? userInfo.user_name : null;
 }
 
 export function log_out() {
-    // Reset user information
-    reset_user_infos();
+    fetch('/PHP/log-out.php');
 
     // Toast notification details
     const toast_title = 'Déconnexion réussie';
@@ -62,20 +56,13 @@ export async function delete_account() {
     if (!window.confirm("Voulez-vous vraiment supprimer votre compte ?")) {
         return;
     }
-    
-    const php_inputs = {
-        "user-id": parseInt(sessionStorage.getItem('user_id'))
-    };
-
-    log_out();
 
     try {
         const response = await fetch('/PHP/delete-user-account.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(php_inputs)
+            }
         });
 
         if (!response.ok) {
@@ -132,7 +119,6 @@ export async function delete_account() {
 
 export async function get_user_progress(quiz_id) {
     const php_inputs = {
-        "user-id": parseInt(sessionStorage.getItem('user_id')),
         "quiz-id": quiz_id
     };
 
@@ -161,7 +147,6 @@ export async function get_user_progress(quiz_id) {
 
 export async function update_user_progress(quiz_id, new_progress) {
     const php_inputs = {
-        "user-id" : sessionStorage.getItem('user_id'),
         "quiz-id" : quiz_id,
         "quiz-progress" : new_progress
     };
@@ -193,4 +178,4 @@ export async function update_user_progress(quiz_id, new_progress) {
 
 window.get_user_progress = get_user_progress;
 window.update_user_progress = update_user_progress;
-window.get_is_loged_in = get_is_loged_in;
+window.get_is_logged_in = get_is_logged_in;

@@ -6,9 +6,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $data = file_get_contents("php://input");
     $input = json_decode($data, true);
 
-    if ($input["user-id"]) {
+    if ($_SESSION["user-id"]) {
 
-        $user_id = $input["user-id"];
+        $user_id = $_SESSION["user-id"];
         $quiz_id = $input["quiz-id"];
         $quiz_progress = $input["quiz-progress"];
         $conn = new mysqli($server_name, $id, $database_password, $database_name);

@@ -175,11 +175,11 @@ async function add_slection_settings(container, data, path) {
     
     let quiz_progress = document.createElement('p');
             console.log("Quiz ID : ", data.quizID);
-            const loged_in = user.get_is_loged_in() === 'true';
+            const logged_in = await user.get_is_logged_in();
             const progress = await user.get_user_progress(data.quizID)/10;
             let shown_progress = `Progression : ${progress}%`;
 
-            if (!loged_in || loged_in == null || loged_in == undefined) {
+            if (!logged_in || logged_in == null || logged_in == undefined) {
                 shown_progress = "Veuillez vous connecter pour voir votre progression";
             }
             

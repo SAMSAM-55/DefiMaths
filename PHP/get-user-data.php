@@ -2,24 +2,13 @@
 
 require __DIR__ . '/config.php';
 
+session_start();
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $data = file_get_contents("php://input");
-    $user = json_decode($data, true);
 
-    if ($user["user_id"]) {
-        
-        $user_id = $user["user_id"];
+    if ($_SESSION["user-id"]) {
 
-        $conn = new mysqli($server_name, $id, $database_password, $database_name);
-        $user_data = $conn -> query("SELECT * FROM `main` WHERE `main`.`id` = $user_id;");
-
-        if ($user_data && $user_data->num_rows > 0) {
-            $row = $user_data->fetch_assoc();
-            echo json_encode($row);
-            $conn -> close();
-        } else {
-            echo json_encode(["error" => "User Not Found"]);
-        }
+        echo json_encode(["user_name" => $_SESSION['user-name'], "user_email" => $_SESSION['user-email'], "logged_in" => $_SESSION['logged-in']]);
 
     } else {
         echo json_encode(["error" => "User ID missing."]);

@@ -10,6 +10,9 @@ addEventListener("DOMContentLoaded", () => {
         const toast_message = url_params.get('toast-message');
         const toast_type = url_params.get('toast-type');
 
+        const cleanUrl = window.location.origin + window.location.pathname;
+        window.history.replaceState({}, document.title, cleanUrl);
+
         show_toast(toast_title, toast_message, toast_type);
     }
 });

@@ -1,6 +1,8 @@
+/* Importing the main site font */
 @import url('https://fonts.googleapis.com/css2?family=Jersey+25&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @keyframes arrow-animation {
+    /* Animation used for the arrow in the buttons */
     0% {
         transform: translateX(0);
     }
@@ -14,6 +16,7 @@
 }
 
 @keyframes icon-animation {
+    /* Animation used for the icon in the account page buttons */
     0% {
         transform: scale(1);
     }
@@ -27,19 +30,24 @@
 }
 
 :root {
-    --border-color: #ffffff00;
-    --header-text-before-width: 75%;
-    --theme-background-color : #E0B1CB;
-    --theme-header-color : #5E548E;
-    --theme-button-color-normal : #BE95C4;
-    --theme-button-color-hovered : #9F86C0;
-    --theme-button-color-selected : #231942;
-    --score-text-size : 48px;
+    /* Main theme color and variables (some of the colors might also be used in other components than the specified ones) */
+    --border-color: #ffffff00; /* Border color for buttons */
+    --header-text-before-width: 75%; /* Width of the header text underline */
+    --theme-background-color : #E0B1CB; /* Background color of the page */
+    --theme-header-color : #5E548E; /* Header color */
+    --theme-button-color-normal : #BE95C4; /* Normal button color */
+    --theme-button-color-hovered : #9F86C0; /* Hovered button color */
+    --theme-button-color-selected : #231942; /* Selected button color */
+    --score-text-size : 48px; /* Font size for the score text */
 }
+
+/* Enables smooth scrolling for anchor links */
 
 html {
     scroll-behavior: smooth;
 }
+
+/* Baseline, reset styles */
 
 * {
     box-sizing: border-box;
@@ -47,16 +55,17 @@ html {
 }
 
 *:not(mjx-container):not(mjx-container *) {
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Kanit', sans-serif; /* Font family for the entire page except the mathjax texts because they require a specific (compatible) font*/
 }
   
+/* Body styles */
 
 body {
     margin: 0 auto;
     background-color: var(--theme-background-color);
 }
 
-/* header menu */
+/* Header menu */
 
 header {
     background-color: var(--theme-header-color);
@@ -89,6 +98,7 @@ header {
 }
 
 .header-text::before {
+    /* Underline effect for the header text */
     content: '';
     background-color: rgb(0, 0, 0);
     transform-origin: center;
@@ -131,7 +141,7 @@ header {
     text-transform: none;
 }
 
-/* presentation texts style */
+/* Presentation texts style */
 
 .page-presentation {
     align-content: center;
@@ -147,8 +157,9 @@ header {
     width: 50%;
 }
 
-/* quiz selection style */
+/* Quiz selection style */
 
+/* Style for the global container (contains each quiz option) */
 .quiz-selection-main-container {
     display: flex;
     flex-direction: column;
@@ -157,6 +168,7 @@ header {
     margin-top: 50px;
 }
 
+/* Style for the individual quiz options */
 .quiz-selection-container {
     display: flex;
     flex-direction: column;
@@ -175,6 +187,7 @@ header {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Style for the button that makes the selection options menu appear */
 .quiz-selection-button {
     background: var(--theme-button-color-normal);
     color: rgb(0, 0, 0);
@@ -225,6 +238,7 @@ header {
     transform: rotate(180deg);
 }
 
+/* Style for the settings of the quiz (number of questions) */
 .quiz-selection-settings-container {
     display: flex;
     align-items: center;
@@ -233,6 +247,7 @@ header {
     margin: 10px;
 }
 
+/* The container that holds the description and other elements about the quiz (including the settings) */
 .quiz-selection-info-container {
     background-color: var(--theme-button-color-normal);
     display: flex;
@@ -250,11 +265,13 @@ header {
     border-bottom-left-radius: 5px;
 }
 
+/* Make the dropdown menu appear */
 .quiz-selection-container.selected .quiz-selection-info-container {
     max-height: 190px;
     transform: scaleY(1);
 }
 
+/* Button to start the quiz */
 .quiz-selection-start-button {
     background-color: var(--theme-button-color-normal);
     border: 3px solid var(--border-color);
@@ -288,8 +305,9 @@ header {
     margin: 0 9px;
 }
 
-/* quiz style */
+/* Quiz style */
 
+/* Style for the quiz main container (contains the question and answers) */
 .quiz-main {
     display: flex;
     flex-direction: column;
@@ -298,6 +316,7 @@ header {
     margin-top: 30px;
 }
 
+/* Style for the quiz answers container */
 .quiz-answer-list {
     display: flex;
     flex-direction: column;
@@ -307,6 +326,7 @@ header {
     padding-inline-start: 0;
 }
 
+/* Style for each individual answer button */
 .quiz-answer-button {
     background: var(--theme-button-color-normal);
     color: rgb(0, 0, 0);
@@ -339,7 +359,7 @@ header {
     color: white;
 }
 
-
+/* Style for the answer text */
 .answer-button-text {
     position: relative;
     z-index: 2;
@@ -353,7 +373,7 @@ header {
     margin-top: 20px;
 }
 
-/* Answer selection indicator */
+/* Answer indicator (good or bad) */
 
 .answer-indicator {
     width: 10px;
@@ -373,6 +393,7 @@ header {
 
 /* Free answer style */
 
+/* Style for the input field where the user can type their answer */
 .answer-input {
     -webkit-appearance: none;
     appearance: none;
@@ -391,6 +412,7 @@ header {
     transition: border-color 0.3s ease-in-out;
 }
 
+/* Sets the color of the input's border depending on the answer (correct or incorrect) */
 .answer-input.correct {
     border-color: green;
 }
@@ -404,6 +426,7 @@ label[for="answer-input"] {
     margin: 15px 5px;
 }
 
+/* Style for the answer text that shows the correct answer at the end of the timer */
 .correct-answer-text {
     font-size: 1em;
     transform: scale(0);
@@ -441,7 +464,7 @@ label[for="answer-input"] {
     border-radius: 5px;
 }
 
-/* Utility buttons style */
+/* Utility buttons style (going to the next questions and submitting the answer) */
 
 .quiz-utility-button {
     background-color: var(--theme-background-color);
@@ -461,6 +484,7 @@ label[for="answer-input"] {
     transition: all 0.3s ease-in-out;
 }
 
+/* Style for the container which holds the utility buttons */
 .quiz-utility-buttons-container {
     display: flex;
     flex-direction: row;
@@ -487,6 +511,7 @@ label[for="answer-input"] {
 
 /* Quiz score style */
 
+/* Style for the quiz score container (shows the current score and the question number) */
 .quiz-score-container {
     display: flex;
     flex-direction: row;
@@ -519,6 +544,7 @@ label[for="answer-input"] {
 
 /* Result screen style */
 
+/* Style for the result screen container (shows the score and the end message) */
 .main-score-container {
     display: flex;
     flex-direction: row;
@@ -536,6 +562,7 @@ label[for="answer-input"] {
     margin: 0;
 }
 
+/* End message text style */
 .end-score-text {
     display: flex;
     flex-direction: column;
@@ -545,6 +572,7 @@ label[for="answer-input"] {
     align-content: center;
 }
 
+/* Style for the score text (integer part) */
 .score-integer-container {
     display: flex;
     padding: 0;
@@ -554,6 +582,7 @@ label[for="answer-input"] {
     margin: 0 1px;
 }
 
+/* Style for the score text (decimal part) */
 .score-decimal-digit {
     display: flex;
 }
@@ -562,7 +591,7 @@ label[for="answer-input"] {
     text-align: center;
 }
 
-/* Link to my github page */
+/* Link to my GitHub page */
 
 footer {
     margin-top: 100px;

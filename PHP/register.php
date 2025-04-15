@@ -13,8 +13,10 @@ if (empty("$email") || empty("$password") || empty("$user_name")) {
     exit();
 }
 
-$conn = new mysqli($server_name, $id, $database_password, $database_name);
-$check_email_avalaible = $conn -> query("SELECT * FROM `main` WHERE `main`.`email` = '$email'");
+$conn = connectToDatabase();
+$check_email_avalaible = $conn -> query("SELECT * FROM `main` WHERE `main`.`email` = ?");
+$check_email_stmt = $conn -> prepare($check_email_avalaible);
+$check_email_stmt -> bind_param("s", $email);
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 $create_account = "INSERT INTO `main` (user_name, email, password, progress) VALUES('$user_name', '$email', '$hashed_password', '{}')";
 
@@ -42,7 +44,7 @@ if (preg_match("/^[a-zA-Z0-9-._]*$/", "$user_name")) {} else {
     exit();
 }
     
-if ($check_email_avalaible -> num_rows == 0) {} else {
+if ($check_email_stmt -> execute() && $check_email_stmt -> get_result() -> num_rows === 0) {} else {
     $toast_type = 'warning';
     $toast_title = 'Email indisponnible';
     $toast_message = 'Un compte utilise déjà cet email.';

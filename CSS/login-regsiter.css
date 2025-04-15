@@ -1,125 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Jersey+25&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-@keyframes arrow-animation {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(10px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-    
-}
-
-:root {
-    --border-color: #ffffff00;
-    --header-text-before-width: 75%;
-    --theme-background-color : #E0B1CB;
-    --theme-header-color : #5E548E;
-    --theme-button-color-normal : #BE95C4;
-    --theme-button-color-hovered : #9F86C0;
-    --theme-button-color-selected : #231942;
-    --score-text-size : 48px;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-* {
-    box-sizing: border-box;
-    font-weight: 600;
-}
-
-*:not(mjx-container):not(mjx-container *) {
-    font-family: 'Kanit', sans-serif;
-}
-  
-
-body {
-    margin: 0 auto;
-    background-color: var(--theme-background-color);
-}
-
-/* header menu */
-
-header {
-    background-color: var(--theme-header-color);
-    color: rgb(0, 0, 0);
-    align-content: center;
-    display: flex;
-    justify-content: center;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.header-menu {
-    display: flex;
-    width: 95%;
-    justify-content: space-around;
-    list-style-type: none;
-    margin: 0;
-    padding: 15px 0;
-}
-
-
-.header-text {
-    color: rgb(0, 0, 0);
-    font-size: 1.5em;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none;
-    cursor: pointer;
-    position: relative;
-    padding-bottom: 5px;
-}
-
-.header-text::before {
-    content: '';
-    background-color: rgb(0, 0, 0);
-    transform-origin: center;
-    border-radius: 2px;
-    width: var(--header-text-before-width);
-    height: 5px;
-    position: absolute;
-    bottom: 0;
-    left: calc(50% - (var(--header-text-before-width) / 2));
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
-}
-
-.header-text:hover::before {
-    transform: scaleX(1);
-}
-
-.header-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.header-logo img {
-    width: 50px;
-    height: 50px;
-    margin : 10px
-}
-
-.account-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-}
-
-.account-info .header-text {
-    font-size: 1.2em;
-    margin-right: 10px;
-    text-transform: none;
-}
-
 /* Register and login style */
 
+/* Main container for the register and login forms */
 .register-container {
     position: relative;
     width: 350px;
@@ -136,6 +17,7 @@ header {
     flex-direction: column;
 }
 
+/* Form item styles */
 .form-item {
     display: flex;
     flex-direction: column;
@@ -148,6 +30,7 @@ header {
     color: black;
 }
 
+/* Input fields styles */
 .form-item input {
     padding: 2px;
     border: 2px solid var(--theme-button-color-selected);
@@ -159,6 +42,7 @@ header {
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+/* Password styles (different from other inputs) because of the visibility toggle icon */
 .form-item div {
     display: flex;
     justify-content: space-between;
@@ -177,10 +61,12 @@ header {
     width: 285px;
 }
 
+/* Icon styles for the eye icon used to toggle password visibility */
 .form-item div i {
     cursor: pointer;
 }
 
+/* Button styles for the submit button */
 .submit-button {
     background-color: var(--theme-button-color-normal);
     color: white;
@@ -201,12 +87,14 @@ header {
 .submit-button:hover {
     background-color: var(--theme-button-color-hovered);
     transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .submit-button:hover i {
     animation: arrow-animation 0.75s infinite;
 }
 
+/* Redirect link styles (login to register and register to login) */
 .register-container p {
     text-align: center;
     margin-top: 10px;

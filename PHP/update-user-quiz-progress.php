@@ -11,13 +11,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $user_id = $_SESSION["user-id"];
         $quiz_id = $input["quiz-id"];
         $quiz_progress = $input["quiz-progress"];
-        $conn = new mysqli($server_name, $id, $database_password, $database_name);
+        $conn = connectToDatabase();
         $req = "UPDATE main 
         SET progress = COALESCE(progress, '{}'),
         progress = JSON_SET(progress, '$.$quiz_id', $quiz_progress)
-        WHERE id = $user_id;";
+        WHERE id = ?;";
+        $stmt = $conn -> prepare($req);
+        $stmt -> bind_param("i", $user_id);
 
-        if ($conn -> query($req)) {
+        if ($stmt -> execute()) {
             echo json_encode(["type" => "info", "title" => "Mise à jour de la progression", "message" => "Votre progression sur ce quiz a bien été mise à jour."]);
             exit(0);
         } else {

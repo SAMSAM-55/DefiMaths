@@ -1,11 +1,22 @@
-import * as api from './load-api.js';
+// This file contains utility functions used in the quiz application, such as score animation, question selection, and progress tracking.
+
+import * as api from './quiz-data-handler.js';
 import * as user from './user-information.js';
 
+// Function to get the number of digits in the score
+// @param score : The score to get the number of digits from
+// @returns : The number of digits in the score
+// @example : get_score_digits_number(1234) => 4
 function get_score_digits_number(score) {
     const number = score - (score%1);
     return number.toString().length;
 }
 
+// Function to get the digit at a specific position in the score
+// @param score : The score to get the digit from
+// @param position : The position of the digit to get (0 for the first digit, 1 for the second digit, etc.)
+// @returns : The digit at the specified position in the score
+// @example : get_digit_at_position(1234, 2) => 3
 function get_digit_at_position(score, position) {
     let displayed_score = round(score, 1)
     let score_string = displayed_score.toString().replaceAll('.', '')
@@ -22,26 +33,30 @@ function get_digit_at_position(score, position) {
 }
 
 // Function for playing the animation at the end of the quiz
+// @param score : The score to animate
 function play_animation(score) {
     setTimeout(() => {
-        const texts = document.querySelectorAll('.score-text');
-        texts.forEach((current_text) => {
-        let digit_position = current_text.getAttribute('score-position');
-        let number = get_digit_at_position(score, digit_position);
-        let score_digits = current_text.querySelectorAll('.score-digit');
+        const texts = document.querySelectorAll('.score-text'); // Select all elements with the class 'score-text'
+        texts.forEach((current_text) => { // Animating each element
+        let digit_position = current_text.getAttribute('score-position'); // Get the position of the digit to animate
+        let number = get_digit_at_position(score, digit_position); // Get the corresponding digit in the score
+        let score_digits = current_text.querySelectorAll('.score-digit'); // Select all elements with the class 'score-digit' inside the current element
         score_digits.forEach((digit) => {
-            let digit_height = digit.getBoundingClientRect().height;
-            console.log(digit_height);
-            digit.style.transform = `translateY(calc(-1px*${number}*(${digit_height})))`; // number at the end is the ratio between the font size and the height of the digit
+            let digit_height = digit.getBoundingClientRect().height; // Get the height of the digit element
+            digit.style.transform = `translateY(calc(-1px*${number}*(${digit_height})))`; // Animate the digit to its final position
         });
     });
-}, 100);
+}, 100); // The delay before the animation starts
 }
 
+// Function to update the user progress in the database
+// @param score : The score to update the progress for
+// @param data : The data object containing the quiz information
 async function update_progress(score, data) {
-    const progress = round(score*1.1 / (data.maxQuestions / 10), 1);
-    const current_progress = await user.get_user_progress(data.quizID)/10;
+    const progress = round(score*1.1 / (data.maxQuestions / 10), 1); // Calculates the progress based on the score and the quiz maximum score (the number that we multiply the score by determines the max progress, here 1.1 gives a maximum of 110%)
+    const current_progress = await user.get_user_progress(data.quizID)/10; // Retrieves the current progress from the database
 
+    // If the new progress is greater than the current progress, update the progress in the database
     if (progress > current_progress) {
         user.update_user_progress(data.quizID, progress*10).then((response) => {
             if (response) {
@@ -58,25 +73,39 @@ async function update_progress(score, data) {
     }
 }
 
-// Function used to round the score to one digit
+// Function used to round the score to a specific number of digits
+// @param value : The score to round
+// @param precision : The number of digits to round to
+// @returns : The rounded score
+// @example : round(1234.5678, 2) => 1234.57
 export function round(value, precision) {
     var multiplier = Math.pow(10, precision || 0);
     return Math.round(value * multiplier) / multiplier;
 }
 
 // Function for picking random questions among the declared ones in the json file
+// @param allQuestions : The array of questions to pick from
+// @param numQuestions : The number of questions to pick
 export function pickrandomQuestions(allQuestions, numQuestions) {
+    let questions_copy = [...allQuestions]; // Create a copy of the array to avoid modifying the original array
+    if (numQuestions > questions_copy.length) {
+        console.error("Not enough questions available to select from.");
+        return null;
+    }
     const selectedQuestions = [];
     for (let i = 0; i < numQuestions; i++) {
-        const randomIndex = Math.floor(Math.random() * allQuestions.length);
-        selectedQuestions.push(allQuestions[randomIndex]);
-        allQuestions.splice(randomIndex, 1);
+        const randomIndex = Math.floor(Math.random() * questions_copy.length);
+        selectedQuestions.push(questions_copy[randomIndex]);
+        questions_copy.splice(randomIndex, 1);
     }
     return selectedQuestions;
     
 }
 
-// Function for shuffling arrays used to automaticly display possible anwsers in a random order 
+// Function for shuffling arrays used to automatically display possible anwsers in a random order using the Fisher-Yates algorithm
+// @param array : The array to shuffle
+// @returns : The shuffled array
+// @example : shuffleArray([1, 2, 3, 4, 5]) => [3, 1, 4, 5, 2] 
 export function shuffleArray(array) {
     for (let i = array.length -1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -87,14 +116,16 @@ export function shuffleArray(array) {
 }
 
 // Function for animating the score at the end of the quiz
+// @param score : The score to animate
+// @param maxScore : The maximum score of the quiz
 export async function animate_score(score, maxScore, data) {
-    console.log("Animated score : ", score);
-
+    // Get the score component and the score integer container
     const score_digit_component = document.getElementsByClassName('score-decimal-digit')[0];
     const score_integer_container = document.getElementsByClassName('score-integer-container')[0];
     score_digit_component.innerHTML = '';
     score_integer_container.innerHTML = '';
 
+    // Iterate throught the digits of the score and create the corresponding HTML elements
     for (let i = 0 ; i < get_score_digits_number(score) ; i++) {
         score_integer_container.innerHTML += `<span class="score-integer-digit score-text" score-position=${get_score_digits_number(score) - i}>
         <p class="score-digit" index=0>0</p>
@@ -124,8 +155,9 @@ export async function animate_score(score, maxScore, data) {
     </span>
     `;
 
-    play_animation(score);
+    play_animation(score); // Play the animation for the score
     
+    // Add confetti if the score is greater than 90% of the maximum score
     if (score >= maxScore*0.9) {
         confetti({
         particleCount: 100,
@@ -134,25 +166,34 @@ export async function animate_score(score, maxScore, data) {
       });
     }
 
-    update_progress(score, data).then(() => {;
-        console.log("Progress updated.");
-    });
+    update_progress(score, data); // Update the progress in the database
 }
 
+// Function to add the settings for the quiz selection
+// @param container : The container to add the settings to
+// @param data : The data object containing the quiz information
+// @param path : The path to the quiz file
 async function add_slection_settings(container, data, path) {
+    // Add the info container that holds the description, the progress and the settings for the quiz
+    // The setting is the number of questions to display
     let info_container = document.createElement('div');
         info_container.classList.add('quiz-selection-info-container');
         container.appendChild(info_container);
 
+    // Add the quiz description
     let quiz_description = document.createElement('p');
         quiz_description.innerHTML = data.description;
         quiz_description.classList.add('quiz-selection-description');
         info_container.appendChild(quiz_description);
 
+    // Add the quiz settings container that holds the slider and the progress
+    // The slider is used to select the number of questions to display
     let settings_container = document.createElement('div');
         settings_container.classList.add('quiz-selection-settings-container');
         info_container.appendChild(settings_container);
 
+    // Add the slider that allows the user to select the number of questions to display
+    // The slider is a range input that goes from the minimum number of questions to the maximum number of questions
     let slider = document.createElement('input');
             slider.type = 'range';
             slider.min = data.minQuestions;
@@ -162,6 +203,8 @@ async function add_slection_settings(container, data, path) {
             slider.classList.add('slider');
             slider.id = 'question-number-slider';
     
+    // Add the label for the slider that displays the number of questions to display
+    // The label is updated when the slider value changes
     let slider_label = document.createElement('label');
             var slider_value = slider.value;
             slider.oninput = () => {
@@ -173,8 +216,9 @@ async function add_slection_settings(container, data, path) {
             settings_container.appendChild(slider_label);
             settings_container.appendChild(slider);
     
+    // Add the progress container that holds the progress of the quiz
+    // The progress is displayed as a percentage
     let quiz_progress = document.createElement('p');
-            console.log("Quiz ID : ", data.quizID);
             const logged_in = await user.get_is_logged_in();
             const progress = await user.get_user_progress(data.quizID)/10;
             let shown_progress = `Progression : ${progress}%`;
@@ -190,7 +234,8 @@ async function add_slection_settings(container, data, path) {
             }
             quiz_progress.classList.add('quiz-selection-progress');
             info_container.appendChild(quiz_progress);
-
+        
+    // Add the start button that starts the quiz when clicked
     let start_button = document.createElement('button');
             start_button.innerHTML = `Commencer<i class="fa-solid fa-arrow-right"></i>`;
             start_button.classList.add('quiz-selection-start-button');
@@ -207,6 +252,7 @@ export function show_available_quiz() {
 
     const quiz_selector_list = document.querySelector('.quiz-selection-main-container')
 
+    // Display all the quizzes available in the Assets/Quiz folder and add the settings for each quiz
     for (let path of quiz_paths) {
         let final_path = `Assets/Quiz/${path}`
         let selector_container = document.createElement('div');
@@ -215,7 +261,6 @@ export function show_available_quiz() {
         selector.onclick = () => {
             let selected = Array.from(document.getElementsByClassName('selected'));
             selected = selected.filter((element) => element !== selector && element !== selector_container);
-            console.log(selected);
             if (selected != []) {
                 selected.forEach((element) => {
                     element.classList.remove('selected');
@@ -244,6 +289,10 @@ export function show_available_quiz() {
 
 }
 
+// Function to show a toast message
+// @param title : The title of the toast message
+// @param message : The message of the toast
+// @param type : The type of the toast message (success, error, warning, info)
 export function show_toast(title, message, type = 'warning') {
     const toast = document.getElementById('toast');
     toast.className = `feedback-container ${type}`;

@@ -1,5 +1,6 @@
 /* This css file is only for the account.html file wich corresponds to the profile page */
 
+/* Main container of the page */
 .profile-info-container {
     display: flex;
     flex-direction: column;
@@ -11,6 +12,7 @@
     right : calc(-50% + 225px);
 }
 
+/* Page title */
 .profile-info-container h2 {
     font-size: 24px;
     margin-bottom: 50px;
@@ -27,12 +29,14 @@
     background-color: black;
 }
 
+/* Container for each information (email and password) */
 .profile-info-item {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
 }
 
+/* The inputs used to display the informations */
 .profile-info-item input {
     padding: 2px;
     border: 2px solid var(--theme-button-color-selected);
@@ -44,6 +48,7 @@
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+/* The container that holds the different actions for the profile (deletion and logging out of the site) */
 .profile-actions-container {
     display: flex;
     flex-direction: column;
@@ -52,6 +57,7 @@
     width: 100%;
 }
 
+/* The buttons used to delete the account and log out of the site */
 .profile-actions-container button {
     background-color: var(--theme-background-color);
     color: white;

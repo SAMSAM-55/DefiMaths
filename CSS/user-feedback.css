@@ -10,11 +10,21 @@
     width: 500px;
     height: 100px;
     border-radius: 9px;
-    opacity: 0;
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 100%;
     z-index: 1000;
     background-color: var(--theme-button-color-normal);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-container.old {
+    transition: all 0ms;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+.feedback-container.new {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .feedback-container::before {
@@ -55,6 +65,7 @@
 }
 
 .feedback-container.hide {
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Ensure the element has the right transition setup*/
     opacity: 0;
     transform: translateX(-50%) translateY(-40px);
 }
@@ -78,7 +89,7 @@
     margin: 0;
 }
 
-/* The differents colors used for the types of message */
+/* The different colors used for the types of message */
 
 .success {
     --color: #47d763;

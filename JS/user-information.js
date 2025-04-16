@@ -19,9 +19,7 @@ async function get_user_info() {
         }
 
         // Returns the retrieved data
-        const data = await response.json();
-
-        return data;
+        return await response.json();
 
     } catch (error) {
         console.error("An error occurred while fetching user data:", error);
@@ -102,8 +100,6 @@ export async function delete_account() {
 
             // Redirect to the index page with toast parameters
             window.location.href = url.toString();
-
-            return;
         } else {
             // If the request is successful, we redirect the user to the index page with a success message
             // Toast notification details
@@ -117,8 +113,6 @@ export async function delete_account() {
 
             // Redirect to the index page with toast parameters
             window.location.href = url.toString();
-
-            return;
         }
 
     } catch (error) {
@@ -137,8 +131,6 @@ export async function delete_account() {
 
         // Redirect to the index page with toast parameters
         window.location.href = url.toString();
-
-        return;
     }
 }
 
@@ -203,11 +195,8 @@ export async function update_user_progress(quiz_id, new_progress) {
             console.error("Une erreur est survenue lors de la requête : ", response.statusText);
             return null;
         }
-        const result = await response.json();
-        return null;
-    }
-
-    catch (error) {
+        return await response.json();
+    } catch (error) {
         console.error("Erreur lors de la requete fetch ", error);
         return null;
     }

@@ -37,7 +37,7 @@ if (password_verify($password, $hashed_password)) {
     $conn->close();
     http_response_code(200);
     echo "<script type='text/javascript'>
-        window.location.href = 'https://defimaths.net/index.html?toast=" . urlencode('true') . "&toast-type=" . urlencode($toast_type) . "&toast-title=" . urlencode($toast_title) . "&toast-message=" . urlencode($toast_message) . "';
+        window.location.href = window.location.origin + '/index.html?toast=" . urlencode('true') . "&toast-type=" . urlencode($toast_type) . "&toast-title=" . urlencode($toast_title) . "&toast-message=" . urlencode($toast_message) . "';
     </script>";
 } else {
     $toast_type = 'error';
@@ -47,9 +47,8 @@ if (password_verify($password, $hashed_password)) {
     $conn->close();
     http_response_code(200);
     echo "<script type='text/javascript'>
-        window.location.href = 'https://defimaths.net/login.html?email=" . urlencode($email) . "&toast=" . urlencode('true') . "&toast-type=" . urlencode($toast_type) . "&toast-title=" . urlencode($toast_title) . "&toast-message=" . urlencode($toast_message) . "';
+        window.location.href = window.location.origin + '/login.html?email=" . urlencode($email) . "&toast=" . urlencode('true') . "&toast-type=" . urlencode($toast_type) . "&toast-title=" . urlencode($toast_title) . "&toast-message=" . urlencode($toast_message) . "';
     </script>";
 }
 
 exit();
-?>

@@ -22,7 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         WHERE id = ?;";
         $stmt = $conn -> prepare($req);
         $stmt -> bind_param("i", $user_id);
-        $response = $stmt -> execute();
+
+        if (!($stmt -> execute())) {
+            http_response_code(400);
+            echo json_encode(["progress" => 0]);
+            exit(0);
+        }
+
         $result = $stmt -> get_result();
 
         if ($info = $result -> fetch_assoc()) {
@@ -44,5 +50,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo json_encode(["progress" => "No ID found"]);
     }
 }
-
-?>

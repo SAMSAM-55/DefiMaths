@@ -26,7 +26,7 @@ function get_digit_at_position(score, position) {
     }
 
     if (position > 0) {
-        return Number(score_string[score_string.length - position - (displayed_score == score ? 0 : 1)])
+        return Number(score_string[score_string.length - position - (displayed_score === score ? 0 : 1)])
     } else {
         return Number(score_string[score_string.length - 1])
     }
@@ -59,17 +59,20 @@ async function update_progress(score, data) {
     // If the new progress is greater than the current progress, update the progress in the database
     if (progress > current_progress) {
         user.update_user_progress(data.quizID, progress*10).then((response) => {
+            console.log("Server response:", response);
             if (response) {
-                const toast_infos = JSON.parse(response);
+                const toast_infos = response;
+                console.log("Toast infos : ", toast_infos);
                 show_toast(toast_infos.title, toast_infos.message, toast_infos.type);
             } else {
                 console.error("Failed to update progress.");
+                show_toast("Erreur", "Une erreur est survenue lors de la mise à jour de la progression.", "error");
             }
         })
         .catch((error) => {
             console.error("Error updating progress:", error);
-            show_toast("Erreur", "Une erreur est survenue lors de la mise à jour.", "error");
-        });;
+            show_toast("Erreur", "Une erreur est survenue lors de la mise à jour de la progression.", "error");
+        });
     }
 }
 
@@ -166,14 +169,14 @@ export async function animate_score(score, maxScore, data) {
       });
     }
 
-    update_progress(score, data); // Update the progress in the database
+    await update_progress(score, data); // Update the progress in the database
 }
 
 // Function to add the settings for the quiz selection
 // @param container : The container to add the settings to
 // @param data : The data object containing the quiz information
 // @param path : The path to the quiz file
-async function add_slection_settings(container, data, path) {
+async function add_selection_settings(container, data, path) {
     // Add the info container that holds the description, the progress and the settings for the quiz
     // The setting is the number of questions to display
     let info_container = document.createElement('div');
@@ -223,7 +226,7 @@ async function add_slection_settings(container, data, path) {
             const progress = await user.get_user_progress(data.quizID)/10;
             let shown_progress = `Progression : ${progress}%`;
 
-            if (!logged_in || logged_in == null || logged_in == undefined) {
+            if (!logged_in) {
                 shown_progress = "Veuillez vous connecter pour voir votre progression";
             }
             
@@ -261,7 +264,7 @@ export function show_available_quiz() {
         selector.onclick = () => {
             let selected = Array.from(document.getElementsByClassName('selected'));
             selected = selected.filter((element) => element !== selector && element !== selector_container);
-            if (selected != []) {
+            if (selected.length > 0) {
                 selected.forEach((element) => {
                     element.classList.remove('selected');
                 });
@@ -282,7 +285,7 @@ export function show_available_quiz() {
             selector_arrow.classList.add('fa-solid', 'fa-chevron-down');
             selector_container.appendChild(selector); 
             selector.appendChild(selector_arrow);
-            add_slection_settings(selector_container, data, final_path);
+            add_selection_settings(selector_container, data, final_path);
         });
         quiz_selector_list.appendChild(selector_container);
     }

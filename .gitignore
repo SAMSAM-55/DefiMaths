@@ -10,3 +10,7 @@
 # .vscode and .dist
 /.vscode/
 /.dist/
+
+# .idea
+
+/.idea/

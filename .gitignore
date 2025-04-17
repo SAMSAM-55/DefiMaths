@@ -14,3 +14,6 @@
 # .idea
 
 /.idea/
+
+# Personnal configured version of the register file for my domain
+/PHP/register-configured.php

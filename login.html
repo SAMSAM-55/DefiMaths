@@ -42,12 +42,12 @@
             <form action="./PHP/login.php" class="login-form">
                 <div class="form-item" id="email-container">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email">
+                    <input type="email" name="email" id="email" autocomplete="username" required>
                 </div>
                 <div class="form-item" id="password-container">
                     <label for="password">Mot de Passe</label>
                     <div>
-                        <input type="password" name="password" id="password">
+                        <input type="password" name="password" id="password" autocomplete="current-password" required>
                         <i class="fa-solid fa-eye" id="eye-icon"></i>
                     </div>
                 </div>

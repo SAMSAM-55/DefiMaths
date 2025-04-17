@@ -24,3 +24,12 @@ function connectToDatabase() {
 // `email` VARCHAR(255) NOT NULL , 
 // `progress` JSON NOT NULL , 
 // PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+// Request to create the table where the temporary information of the users are stored until email confirmation or expire
+//CREATE TABLE users_temp (
+//  email VARCHAR(255) NOT NULL UNIQUE,
+//  username VARCHAR(100),
+//  password_hash VARCHAR(255),
+//  verification_token VARCHAR(64),
+//  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+//);

@@ -74,11 +74,12 @@ header {
     display: flex;
     justify-content: center;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
 }
 
 .header-menu {
     display: flex;
-    width: 95%;
+    width: 100%;
     justify-content: space-around;
     list-style-type: none;
     margin: 0;
@@ -199,7 +200,7 @@ header {
     cursor: pointer;
     position: relative;
     padding: 5px 20px;
-    margin: 0px 3px;
+    margin: 0 3px;
     border: 3px solid var(--border-color);
     border-radius: 2px;
     overflow: hidden;

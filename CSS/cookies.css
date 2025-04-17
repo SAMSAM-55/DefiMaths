@@ -1,0 +1,44 @@
+.cookies-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+    position: sticky;
+    bottom: 0;
+    left: 50%;
+    height: 150px;
+    transform: translateX(-50%) translateY(100px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    width: 50%;
+    max-width: 800px;
+    min-width: 350px;
+    background-color: var(--theme-button-color-normal);
+    align-self: center;
+    padding-left: 10px;
+    border-radius: 7px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    margin: 10px 0;
+    opacity: 0;
+}
+
+.cookies-container.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.cookies-container p {
+    text-align: left;
+}
+
+/* Cookies page style */
+
+.presentation-container table , .presentation-container table td, .presentation-container table th {
+    outline: var(--theme-button-color-normal) 1px solid;
+    border-collapse: collapse;
+    margin: 9px;
+    padding: 5px;
+}
+
+.presentation-container table td, .presentation-container table th {
+
+}

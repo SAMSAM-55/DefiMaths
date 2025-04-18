@@ -4,11 +4,17 @@ DefiMaths is an open-source project that aims to provide a flexible template for
 
 ## Features
 
-- **Simple time based quizzes** : Easily create quizzes and provides three exemple in the `Assets/Quiz` folder.
+- **Simple time based quizzes** : Easily create quizzes and provides three examples in the `Assets/Quiz` folder.
 - **Multiple answer types** : Use the two different built-in answer types (`multipleChoice` and `freeAnswer`) or create your own. The `multipleChoice` type allows you to set up to four (recommended maximum) different answers. With the `freeAnswer` type, it's up to the user to get the correct answer.
 - **Basic account management** : Users can easily register and login with the account system. The passwords stored in the linked database are hashed for better security.
 - **Progress tracking** : Users progress is stored in the database and displayed when they select a quiz.
-- **Responsive design (work in progress)** : The current design of this template is not responsive, but I'm actively working on it.
+- **Responsive design** : Let your users enjoy the same experience on every device with the responsive design.
+
+## Acknowledgements
+
+This project uses the following libraries and resources:
+- [MathJax](https://www.mathjax.org/) for rendering mathematical symbols.
+- [FontAwesome](https://fontawesome.com/) for icons.
 
 ## Installation
 
@@ -65,7 +71,7 @@ Below are some screenshots showcasing the profile page and quiz selection page o
 
 ![quiz selection page](./Assets/demoImages/DefiMaths-Screenshot-02.png "DéfiMaths's quiz selection page")
 
-You can see an exempe of this project being used at [defimaths.net](https://defimaths.net "DéfiMaths").
+You can see an example of this project being used at [defimaths.net](https://defimaths.net "DéfiMaths").
 
 ## License
 
@@ -73,4 +79,10 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE "MIT
 
 ## Contributions
 
-Every contribution to this project is welcome
+Contributions to this project are welcome! To contribute:
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes and push them to your fork.
+4. Submit a pull request with a detailed description of your changes.
+
+Feel free to open an issue if you encounter any bugs or have suggestions for improvements.

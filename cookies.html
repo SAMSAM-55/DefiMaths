@@ -1,85 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DéfiMaths</title>
-    <link rel="icon" type="image/x-icon" href="./Assets/Logo/SiteLogo.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="./CSS/style.css">
-    <link rel="stylesheet" href="./CSS/user-feedback.css">
-    <link rel="stylesheet" href="./CSS/cookies.css">
-    <script type="module" src="./JS/initialise.js"></script>
-    <script type="module" src="./JS/update-header.js"></script>
-    <script type="module" src="./JS/toast.js"></script>
-</head>
-<body>
-    <!-- Adding the toast notifications elements -->
-    <div id="toast" class="feedback-container warning" style="display: none;">
-        <div class="toast-image">
-            <i class="fas"></i>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DéfiMaths</title>
+        <link rel="icon" type="image/x-icon" href="./Assets/Logo/SiteLogo.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="stylesheet" href="./CSS/style.css">
+        <link rel="stylesheet" href="./CSS/user-feedback.css">
+        <link rel="stylesheet" href="./CSS/cookies.css">
+        <script type="module" src="./JS/initialise.js"></script>
+        <script type="module" src="./JS/update-header.js"></script>
+        <script type="module" src="./JS/toast.js"></script>
+    </head>
+    <body>
+        <!-- Adding the toast notifications elements -->
+        <div id="toast" class="feedback-container warning" style="display: none;">
+            <div class="toast-image">
+                <i class="fas"></i>
+            </div>
+            <div class="toast-content">
+            </div>
         </div>
-        <div class="toast-content">
-        </div>
-    </div>
-    <!-- Main page -->
-    <header class="header">
-        <div class="header-logo">
-            <img src="Assets/Logo/SiteLogo.png" alt="Logo" class="logo">
-        </div>
-        <div class="header-menu">
-            <a href="index.html" class="header-text">Menu</a>
-            <a href="selection-page.html" class="header-text">Nos quiz</a>
-        </div>
-        <div class="account-info">
-            <a href="login.html" class="header-text" id="user-name-text"><i class="fa-solid fa-user"></i> Se connecter</a>
-        </div>
-    </header>
-    <div class="page-presentation">
-        <div class="presentation-container">
-            <h2>Cookies utilisés par DéfiMaths</h2>
-            <h3>1. Qu’est-ce qu’un cookie?</h3>
-            <p>Un cookie est un petit fichier texte déposé par notre serveur sur votre navigateur. Les cookies fonctionnels ne contiennent aucune donnée personnelle identifiable et sont indispensables au service.</p>
+        <!-- Main page -->
+        <header class="header">
+            <div class="header-logo">
+                <img src="Assets/Logo/SiteLogo.png" alt="Logo" class="logo">
+            </div>
+            <div class="header-menu">
+                <a href="index.html" class="header-text">Menu</a>
+                <a href="selection-page.html" class="header-text">Nos quiz</a>
+            </div>
+            <div class="account-info">
+                <a href="login.html" class="header-text" id="user-name-text"><i class="fa-solid fa-user"></i> Se connecter</a>
+            </div>
+        <!-- Button to toggle the burger menu visibility -->
+            <i class="fa-solid fa-bars burger-menu-visibility-switch"></i>
+        </header>
+        <main>
+            <!-- Burger menu for mobile version -->
+            <div class="burger-menu">
+                <a class="burger-text" style="text-transform: uppercase" href="index.html">Menu</a>
+                <a class="burger-text" style="text-transform: uppercase" href="selection-page.html">Nos quiz</a>
+                <a class="burger-text" href="login.html" id="user-name-text" ><i class="fa-solid fa-user"></i>Se connecter</a>
+            </div>
+            <div class="page-presentation">
+                <div class="presentation-container">
+                    <h2>Cookies utilisés par DéfiMaths</h2>
+                    <h3>1. Qu’est-ce qu’un cookie?</h3>
+                    <p>Un cookie est un petit fichier texte déposé par notre serveur sur votre navigateur. Les cookies fonctionnels ne contiennent aucune donnée personnelle identifiable et sont indispensables au service.</p>
 
-            <h3>2. Cookies strictement nécessaires</h3>
-            <table>
-                <thead>
-                <tr>
-                    <th>Nom du cookie</th>
-                    <th>Finalité</th>
-                    <th>Durée de conservation</th>
-                    <th>Type</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><code>PHPSESSID</code></td>
-                    <td>Maintien de votre session et de votre progression sur le site.</td>
-                    <td>Session (disparaît à la fermeture du navigateur)</td>
-                    <td>Fonctionnel</td>
-                </tr>
-                <tr>
-                    <td><code>csrf_token</code> (si activé)</td>
-                    <td>Protection contre les attaques CSRF lors de vos actions authentifiées.</td>
-                    <td>Session (jusqu’à expiration de la session)</td>
-                    <td>Sécurité</td>
-                </tr>
-                </tbody>
-            </table>
+                    <h3>2. Cookies strictement nécessaires</h3>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Nom du cookie</th>
+                            <th>Finalité</th>
+                            <th>Durée de conservation</th>
+                            <th>Type</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><code>PHPSESSID</code></td>
+                            <td>Maintien de votre session et de votre progression sur le site.</td>
+                            <td>Session (disparaît à la fermeture du navigateur)</td>
+                            <td>Fonctionnel</td>
+                        </tr>
+                        </tbody>
+                    </table>
 
-            <h3>3. Consentement et gestion</h3>
-            <p>Ces cookies étant indispensables, ils sont placés automatiquement et ne requièrent pas votre consentement. Vous pouvez toutefois désactiver ou supprimer les cookies via votre navigateur, mais cela peut empêcher le bon fonctionnement du site.</p>
+                    <h3>3. Consentement et gestion</h3>
+                    <p>Ces cookies étant indispensables, ils sont placés automatiquement et ne requièrent pas votre consentement. Vous pouvez toutefois désactiver ou supprimer les cookies via votre navigateur, mais cela peut empêcher le bon fonctionnement du site.</p>
 
-            <h3>4. Modifier vos préférences</h3>
-            <p>Pour gérer ou supprimer les cookies, rendez-vous dans les paramètres de votre navigateur :</p>
-            <ul>
-                <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
-                <li><a href="https://support.mozilla.org/fr/kb/activer-desactiver-cookies" target="_blank" rel="noopener">Mozilla Firefox</a></li>
-                <li><a href="https://support.apple.com/fr-fr/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a></li>
-                <li><a href="https://support.microsoft.com/fr-fr/help/4468242/microsoft-edge-browsing-data-and-privacy-microsoft-privacy" target="_blank" rel="noopener">Microsoft Edge</a></li>
-            </ul>
+                    <h3>4. Modifier vos préférences</h3>
+                    <p>Pour gérer ou supprimer les cookies, rendez-vous dans les paramètres de votre navigateur :</p>
+                    <ul>
+                        <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+                        <li><a href="https://support.mozilla.org/fr/kb/activer-desactiver-cookies" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+                        <li><a href="https://support.apple.com/fr-fr/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a></li>
+                        <li><a href="https://support.microsoft.com/fr-fr/help/4468242/microsoft-edge-browsing-data-and-privacy-microsoft-privacy" target="_blank" rel="noopener">Microsoft Edge</a></li>
+                    </ul>
 
-        </div>
-    </div>
-</body>
+                </div>
+            </div>
+        </main>
+    </body>
 </html>

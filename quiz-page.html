@@ -1,63 +1,62 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DéfiMaths - Quiz</title>
-    <link rel="icon" type="image/x-icon" href="Assets/Logo/SiteLogo.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="./CSS/style.css">
-    <link rel="stylesheet" href="./CSS/user-feedback.css">
-    <script type="module" src="JS/toast.js"></script>
-    <script>
-        window.MathJax = {
-          tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']],
-            displayMath: [['$$','$$'], ['\\[','\\]']]
-          }
-        };
-    </script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-    <script type="module" src="JS/initialise.js"></script>
-    <script type="module" src="JS/update-header.js"></script>
-</head>
-<body>
-    <!-- Adding the toast notifications elements -->
-    <div id="toast" class="feedback-container warning" style="display: none;">
-        <div class="toast-image">
-            <i class="fas"></i>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DéfiMaths - Quiz</title>
+        <link rel="icon" type="image/x-icon" href="Assets/Logo/SiteLogo.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="stylesheet" href="./CSS/style.css">
+        <link rel="stylesheet" href="./CSS/user-feedback.css">
+        <script type="module" src="JS/toast.js"></script>
+        <script>
+            window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$','$$'], ['\\[','\\]']]
+            }
+            };
+        </script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+        <script type="module" src="JS/initialise.js"></script>
+        <script type="module" src="JS/update-header.js"></script>
+        <script src="JS/main.js" type="module"></script>
+    </head>
+    <body>
+        <!-- Adding the toast notifications elements -->
+        <div id="toast" class="feedback-container warning" style="display: none;">
+            <div class="toast-image">
+                <i class="fas"></i>
+            </div>
+            <div class="toast-content">
+            </div>
         </div>
-        <div class="toast-content">
-        </div>
-    </div>
-    <!-- Main page -->
-    <header class="header">
-        <div class="header-logo">
-            <img src="Assets/Logo/SiteLogo.png" alt="Logo" class="logo">
-        </div>
-        <div class="header-menu">
-            <a href="index.html" class="header-text">Menu</a>
-            <a href="selection-page.html" class="header-text">Nos quiz</a>
-        </div>
-        <div class="account-info">
-            <a href="login.html" class="header-text" id="user-name-text"><i class="fa-solid fa-user"></i> Se connecter</a>
-        </div>
-        <!-- Button to toggle the burger menu visibility -->
-        <i class="fa-solid fa-bars burger-menu-visibility-switch"></i>
-    </header>
-    <!-- Burger menu for mobile version -->
-    <div class="burger-menu">
-        <a class="burger-text" style="text-transform: uppercase" href="index.html">Menu</a>
-        <a class="burger-text" style="text-transform: uppercase" href="selection-page.html">Nos quiz</a>
-        <a class="burger-text" href="login.html" id="user-name-text" ><i class="fa-solid fa-user"></i>Se connecter</a>
-    </div>
-    <main class="quizz-container" data-json-path="./Assets/Quiz/IdentitesRemarquarbles/Quiz-2.json">
-        <div class="quiz-main">
-            <!-- Quiz content wil be inserted here -->
-            
-        </div>
-    </main>
-    <script src="JS/main.js" type="module"></script>
-</body>
+        <!-- Main page -->
+        <header class="header">
+            <div class="header-logo">
+                <img src="Assets/Logo/SiteLogo.png" alt="Logo" class="logo">
+            </div>
+            <div class="header-menu">
+                <a href="index.html" class="header-text">Menu</a>
+                <a href="selection-page.html" class="header-text">Nos quiz</a>
+            </div>
+            <div class="account-info">
+                <a href="login.html" class="header-text" id="user-name-text"><i class="fa-solid fa-user"></i> Se connecter</a>
+            </div>
+            <!-- Button to toggle the burger menu visibility -->
+            <i class="fa-solid fa-bars burger-menu-visibility-switch"></i>
+        </header>
+        <main class="quizz-container" data-json-path="./Assets/Quiz/IdentitesRemarquarbles/Quiz-2.json"></main>
+            <!-- Burger menu for mobile version -->
+            <div class="burger-menu">
+                <a class="burger-text" style="text-transform: uppercase" href="index.html">Menu</a>
+                <a class="burger-text" style="text-transform: uppercase" href="selection-page.html">Nos quiz</a>
+                <a class="burger-text" href="login.html" id="user-name-text" ><i class="fa-solid fa-user"></i>Se connecter</a>
+            </div>
+            <div class="quiz-main">
+            <!-- Quiz content wil be inserted here -->            
+            </div>
+        </main>
+    </body>
 </html>

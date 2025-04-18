@@ -1,66 +1,68 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DéfiMaths</title>
-    <link rel="icon" type="image/x-icon" href="./Assets/Logo/SiteLogo.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="./CSS/style.css">
-    <link rel="stylesheet" href="./CSS/user-feedback.css">
-    <link rel="stylesheet" href="CSS/cookies.css">
-    <script type="module" src="./JS/initialise.js"></script>
-    <script type="module" src="./JS/update-header.js"></script>
-    <script type="module" src="./JS/toast.js"></script>
-    <script src="./JS/cookies-handler.js"></script>
-</head>
-<body>
-    <!-- Adding the toast notifications elements -->
-    <div id="toast" class="feedback-container warning" style="display: none;">
-        <div class="toast-image">
-            <i class="fas"></i>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DéfiMaths</title>
+        <link rel="icon" type="image/x-icon" href="./Assets/Logo/SiteLogo.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="stylesheet" href="./CSS/style.css">
+        <link rel="stylesheet" href="./CSS/user-feedback.css">
+        <link rel="stylesheet" href="CSS/cookies.css">
+        <script type="module" src="./JS/initialise.js"></script>
+        <script type="module" src="./JS/update-header.js"></script>
+        <script type="module" src="./JS/toast.js"></script>
+        <script src="./JS/cookies-handler.js"></script>
+    </head>
+    <body>
+        <!-- Adding the toast notifications elements -->
+        <div id="toast" class="feedback-container warning" style="display: none;">
+            <div class="toast-image">
+                <i class="fas"></i>
+            </div>
+            <div class="toast-content">
+            </div>
         </div>
-        <div class="toast-content">
-        </div>
-    </div>
-    <!-- Main page -->
-    <header class="header">
-        <div class="header-logo">
-            <img src="Assets/Logo/SiteLogo.png" alt="Logo" class="logo">
-        </div>
-        <div class="header-menu">
-            <a href="index.html" class="header-text">Menu</a>
-            <a href="selection-page.html" class="header-text">Nos quiz</a>
-        </div>
-        <div class="account-info">
-            <a href="login.html" class="header-text" id="user-name-text"><i class="fa-solid fa-user"></i> Se connecter</a>
-        </div>
-    <!-- Button to toggle the burger menu visibility -->
-        <i class="fa-solid fa-bars burger-menu-visibility-switch"></i>
-    </header>
-    <!-- Burger menu for mobile version -->
-    <div class="burger-menu">
-        <a class="burger-text" style="text-transform: uppercase" href="index.html">Menu</a>
-        <a class="burger-text" style="text-transform: uppercase" href="selection-page.html">Nos quiz</a>
-        <a class="burger-text" href="login.html" id="user-name-text" ><i class="fa-solid fa-user"></i>Se connecter</a>
-    </div>
-    <div class="page-presentation">
-        <div class="presentation-container">
-            <h2 class="presentation-title">Bienvenue sur DéfiMaths !</h2>
-            <p class="presentation-text">
-                DéfiMaths est une plateforme interactive dédiée à l'apprentissage des mathématiques à travers des quiz variés et stimulants. 
-                Explorez nos quiz pour tester vos connaissances, améliorer vos compétences et relever des défis adaptés à votre niveau. 
-                Connectez-vous ou inscrivez-vous pour suivre votre progression et débloquer de nouveaux contenus. 
-                Prêt à relever le défi ? Commencez dès maintenant !
-            </p>
-        </div>
-    </div>
-    <footer>
-        <p>Vous voulez voir mes autres projets ? <a href="https://github.com/SAMSAM-55" target="_blank">Cliquez ici !</a></p>
-        <div class="cookies-container">
-            <h2 class="cookies-title"><i class="fa-solid fa-cookie-bite"></i> Cookies</h2>
-            <p>DéfiMaths utilise uniquement des cookies fonctionnels. Pour plus d'informations, consultez <a href="cookies.html">cette page</a></p>
-        </div>
-    </footer>
-</body>
+        <!-- Main page -->
+        <header class="header">
+            <div class="header-logo">
+                <img src="Assets/Logo/SiteLogo.png" alt="Logo" class="logo">
+            </div>
+            <div class="header-menu">
+                <a href="index.html" class="header-text">Menu</a>
+                <a href="selection-page.html" class="header-text">Nos quiz</a>
+            </div>
+            <div class="account-info">
+                <a href="login.html" class="header-text" id="user-name-text"><i class="fa-solid fa-user"></i> Se connecter</a>
+            </div>
+        <!-- Button to toggle the burger menu visibility -->
+            <i class="fa-solid fa-bars burger-menu-visibility-switch"></i>
+        </header>
+        <main>
+            <!-- Burger menu for mobile version -->
+            <div class="burger-menu">
+                <a class="burger-text" style="text-transform: uppercase" href="index.html">Menu</a>
+                <a class="burger-text" style="text-transform: uppercase" href="selection-page.html">Nos quiz</a>
+                <a class="burger-text" href="login.html" id="user-name-text" ><i class="fa-solid fa-user"></i>Se connecter</a>
+            </div>
+            <div class="page-presentation">
+                <div class="presentation-container">
+                    <h2 class="presentation-title">Bienvenue sur DéfiMaths !</h2>
+                    <p class="presentation-text">
+                        DéfiMaths est une plateforme interactive dédiée à l'apprentissage des mathématiques à travers des quiz variés et stimulants. 
+                        Explorez nos quiz pour tester vos connaissances, améliorer vos compétences et relever des défis adaptés à votre niveau. 
+                        Connectez-vous ou inscrivez-vous pour suivre votre progression et débloquer de nouveaux contenus. 
+                        Prêt à relever le défi ? Commencez dès maintenant !
+                    </p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>Vous voulez voir mes autres projets ? <a href="https://github.com/SAMSAM-55" target="_blank">Cliquez ici !</a></p>
+            <div class="cookies-container">
+                <h2 class="cookies-title"><i class="fa-solid fa-cookie-bite"></i> Cookies</h2>
+                <p>DéfiMaths utilise uniquement des cookies fonctionnels. Pour plus d'informations, consultez <a href="cookies.html">cette page</a></p>
+            </div>
+        </footer>
+    </body>
 </html>

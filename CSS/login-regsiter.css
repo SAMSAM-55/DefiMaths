@@ -84,14 +84,16 @@
     margin-left: 5px;
 }
 
-.submit-button:hover {
-    background-color: var(--theme-button-color-hovered);
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
+@media (hover: hover) {
+    .submit-button:hover {
+        background-color: var(--theme-button-color-hovered);
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
 
-.submit-button:hover i {
-    animation: arrow-animation 0.75s infinite;
+    .submit-button:hover i {
+        animation: arrow-animation 0.75s infinite;
+    }
 }
 
 /* Redirect link styles (login to register and register to login) */

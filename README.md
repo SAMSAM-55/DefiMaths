@@ -1,6 +1,6 @@
 # DefiMaths
 
-DefiMaths is an open-source project that aims to provide a flexible template for a complete quiz website. This template mainly focuses on math typed quizzes. It supports complex math symbols using `MathJax`
+DefiMaths is an open-source project that aims to provide a flexible template for a complete quiz website. This template mainly focuses on math typed quizzes. It supports complex math symbols using `MathJax`.
 
 ## Features
 

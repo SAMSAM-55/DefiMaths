@@ -70,3 +70,7 @@ You can see an exempe of this project being used at [defimaths.net](https://defi
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE "MIT License") file for details.
+
+## Contributions
+
+Every contribution to this project is welcome

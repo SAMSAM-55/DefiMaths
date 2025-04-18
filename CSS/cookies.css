@@ -1,9 +1,13 @@
+body {
+    padding-bottom: 150px; /* Adding extra space to fit the cookie message*/
+}
+
 .cookies-container {
     display: flex;
     flex-direction: column;
     justify-content: left;
     text-align: left;
-    position: sticky;
+    position: fixed;
     bottom: 0;
     left: 50%;
     height: 150px;
@@ -19,6 +23,11 @@
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     margin: 10px 0;
     opacity: 0;
+    z-index: 1000;
+}
+
+.cookies-container * {
+    z-index: 1000;
 }
 
 .cookies-container.show {
@@ -41,4 +50,16 @@
 
 .presentation-container table td, .presentation-container table th {
 
+}
+
+/* Responsive cookies design for mobile */
+
+@media (max-width: 500px) {
+    .cookies-container {
+        width: 90vw;
+    }
+
+    .cookies-container p {
+        font-size: 0.8em;
+    }
 }

@@ -106,3 +106,11 @@
 .info {
     --color: #2f86ea;
 }
+
+/* Responsive style for mobile */
+
+@media (max-width: 500px) {
+    .feedback-container {
+        width: 90vw;
+    }
+}

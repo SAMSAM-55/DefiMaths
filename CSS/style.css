@@ -75,6 +75,8 @@ header {
     justify-content: center;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     width: 100%;
+    position: sticky;
+    top: 0;
 }
 
 .header-menu {
@@ -379,10 +381,9 @@ header {
 .answer-indicator {
     width: 10px;
     height: 10px;
-    margin-left: 10px;
     position: absolute;
     top: 5px;
-    left: 92.5%;
+    right: 15px;
     visibility: hidden;
     transition: transform 0.3s, visibility 0.3s;
     z-index: 2;
@@ -602,4 +603,125 @@ footer p{
     text-align: center;
     font-size: 15px;
     text-decoration: none;
+}
+
+/* Disabling burger menu for computer version */
+
+.burger-menu, .burger-menu-visibility-switch {
+    display: none;
+}
+
+/* Responsive styles for mobile */
+
+@media (max-width: 500px) {
+    *:hover {
+        cursor: pointer;
+    }
+
+    .header-text {
+        display: none;
+    }
+
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        right: 0;
+        height: 100vh;
+        width: 37.5vw;
+        z-index: 1000;
+        background-color: var(--theme-header-color);
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .burger-menu.show {
+        transform: scaleX(1);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .burger-menu a {
+        text-decoration: none;
+        text-align: end;
+        margin: 15px 10px 0 0;
+        color: black;
+    }
+
+    .burger-menu-visibility-switch {
+        display: block;
+        position: relative;
+        right: 0;
+        align-self: center;
+        font-size: 1.5em;
+        margin-right: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+    }
+
+    .quiz-selection-container, .quiz-selection-container * {
+        width: 90vw;
+    }
+
+    .quiz-selection-button {
+        font-size: 0.9em;
+    }
+
+    .quiz-selection-button i {
+        font-size: 10px;
+        position: absolute;
+        width: 10px;
+        right: 10px;
+        align-self: center;
+    }
+
+    .quiz-selection-info-container {
+        font-size: 0.9em;
+    }
+
+    .quiz-selection-info-container p {
+        margin-top: 10px;
+    }
+
+    .quiz-selection-start-button i {
+        font-size: 15px;
+        width: 15px;
+    }
+
+    .quiz-main h1 {
+        font-size: 1.2em;
+    }
+
+    .quiz-main h2 {
+        font-size: 0.95em;
+    }
+
+    .timer, .answer-container, .quiz-answer-list, .quiz-answer-button {
+        width: 90vw;
+    }
+
+    .quiz-utility-buttons-container {
+        width: 100vw;
+    }
+
+    .quiz-utility-button {
+        margin: 15px 10px 0 0;
+    }
+
+    .quiz-utility-button-text {
+        font-size: 0.65em;
+    }
+
+    .quiz-score-container {
+        width: 90vw;
+    }
+
+    .quiz-score-container *{
+        font-size: 0.8em;
+    }
+
+    .quiz-score-container * span {
+        font-size: 1.1em;
+    }
 }

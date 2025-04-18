@@ -1,6 +1,9 @@
 // This file is used to update the information displayed on the header menu
 import * as user from './user-information.js' 
 
+// Get the burgermenu on the page
+const burger_menu = document.getElementsByClassName('burger-menu')[0]
+
 // Main function to update the header information
 // It uses the user-information file to fetch the information stocked with the php session and updates the headers to display the retrieved information.
 export async function update_header() {
@@ -14,4 +17,12 @@ export async function update_header() {
 // Calls the main function when the page has loaded.
 document.addEventListener("DOMContentLoaded",() => {
     update_header();
+});
+
+// Burger menu
+
+document.addEventListener('click', (event) => {
+    if (event.target.classList.contains('burger-menu-visibility-switch')) {
+        burger_menu.classList.toggle("show");
+    }
 });

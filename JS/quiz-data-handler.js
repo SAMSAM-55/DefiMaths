@@ -23,7 +23,7 @@ export async function get_selected_quiz_data() {
 export async function load_file(path, numQuestions) {
     localStorage.setItem('selectedQuizFile', path);
     localStorage.setItem('numQuestions', numQuestions);
-    window.location.href = './quizz-page.html';
+    window.location.href = '../quiz-page.html';
 }
 
 // This function retrieves the quiz file path from local storage.

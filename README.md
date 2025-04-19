@@ -4,7 +4,7 @@ DefiMaths is an open-source project that aims to provide a flexible template for
 
 ## Features
 
-- **Simple time based quizzes** : Easily create quizzes and provides three examples in the `Assets/Quiz` folder.
+- **Simple time based quizzes** : Easily create quizzes. There are three examples available in the `Assets/Quiz` folder.
 - **Multiple answer types** : Use the two different built-in answer types (`multipleChoice` and `freeAnswer`) or create your own. The `multipleChoice` type allows you to set up to four (recommended maximum) different answers. With the `freeAnswer` type, it's up to the user to get the correct answer.
 - **Basic account management** : Users can easily register and login with the account system. The passwords stored in the linked database are hashed for better security.
 - **Progress tracking** : Users progress is stored in the database and displayed when they select a quiz.

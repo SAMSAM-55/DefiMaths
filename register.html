@@ -47,19 +47,19 @@
             </div>
             <div class="register-container">
                 <h2>S'enregistrer sur DéfiMaths</h2>
-                <form action="./PHP/register.php" class="register-form">
+                <form action="./PHP/register.php" class="register-form" method="post">
                     <div class="form-item" id="user-name-container">
                         <label for="user-name">Nom d'Utilisateur</label>
                         <input type="text" name="user-name" id="user-name" autocomplete="off" required>
                     </div>
                     <div class="form-item" id="email-container">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" autocomplete="email" required>
+                        <label for="email-register">Email</label>
+                        <input type="email" name="email" id="email-register" autocomplete="username" required>
                     </div>
                     <div class="form-item" id="password-container">
-                        <label for="password">Mot de Passe</label>
+                        <label for="password-register">Mot de Passe</label>
                         <div>
-                            <input type="password" name="password" id="password" autocomplete="new-password" required>
+                            <input type="password" name="password" id="password-register" autocomplete="new-password" required>
                             <i class="fa-solid fa-eye" id="eye-icon"></i>
                         </div>
                     </div>

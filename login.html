@@ -47,15 +47,15 @@
             </div>
             <div class="register-container">
                 <h2>Se connecter à DéfiMaths</h2>
-                <form action="./PHP/login.php" class="login-form">
+                <form action="./PHP/login.php" class="login-form" method="post">
                     <div class="form-item" id="email-container">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" autocomplete="username" required>
+                        <label for="email-login">Email</label>
+                        <input type="email" name="email" id="email-login" autocomplete="username" required>
                     </div>
                     <div class="form-item" id="password-container">
-                        <label for="password">Mot de Passe</label>
+                        <label for="password-login">Mot de Passe</label>
                         <div>
-                            <input type="password" name="password" id="password" autocomplete="current-password" required>
+                            <input type="password" name="password" id="password-login" autocomplete="current-password" required>
                             <i class="fa-solid fa-eye" id="eye-icon"></i>
                         </div>
                     </div>

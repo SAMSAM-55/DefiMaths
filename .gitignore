@@ -17,3 +17,6 @@
 
 # Personal configured version of the register file for my domain
 /PHP/register-configured.php
+
+# Personnal folder for gpg information
+/gpg/

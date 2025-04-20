@@ -30,7 +30,7 @@ async function get_user_info() {
 // @returns : The logged in status of the user stored in the PHP session
 export async function get_is_logged_in() {
     const userInfo = await get_user_info();
-    return userInfo ? userInfo.logged_in : "false";
+    return userInfo ? userInfo.logged_in === "true" : false; // Make sure to return a bool
 }
 
 // This function retrieves the user email from the PHP session

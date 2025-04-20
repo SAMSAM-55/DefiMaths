@@ -12,10 +12,11 @@
         <script type="module" src="JS/initialise.js"></script>
         <script type="module" src="JS/update-header.js"></script>
         <script type="module" src="JS/toast.js"></script>
+        <script type="module" src="JS/icons-events.js"></script>
         <script type="module">
             import * as user from './JS/user-information.js';
 
-            addEventListener('DOMContentLoaded', async () => {;
+            addEventListener('DOMContentLoaded', async () => {
                 document.getElementById('user-name').value = await user.get_user_name();
                 document.getElementById('email').value = await user.get_user_email();
 
@@ -64,11 +65,17 @@
                 <h2>Votre Profil</h2>
                 <div class="profile-info-item">
                     <label for="user-name">Nom d'Utilisateur</label>
-                    <input type="text" name="user-name" id="user-name" value="" disabled>
+                    <span>
+                        <input type="text" name="user-name" id="user-name" value="" disabled>
+                        <i class="fas fa-clipboard clipboard-copy"></i>
+                    </span>
                 </div>
                 <div class="profile-info-item">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" value="" disabled>
+                    <span>
+                        <input type="email" name="email" id="email" value="" disabled>
+                        <i class="fas fa-clipboard clipboard-copy"></i>
+                    </span>
                 </div>
                 <div class="profile-actions-container">
                     <button id="log-out" class="log-out">Se Déconnecter <i class="fa-solid fa-right-from-bracket"></i></button>

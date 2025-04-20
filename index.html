@@ -13,6 +13,13 @@
         <script type="module" src="./JS/update-header.js"></script>
         <script type="module" src="./JS/toast.js"></script>
         <script src="./JS/cookies-handler.js"></script>
+        <script type="module">
+            import * as user from './JS/user-information.js';
+
+            const user_name = await user.get_user_name();
+            const page_title = document.getElementById('main-title');
+            page_title.innerText = "Bienvenue" + (user_name ? ", " + user_name : " sur DéfiMaths") + " !"
+        </script>
     </head>
     <body>
         <!-- Adding the toast notifications elements -->
@@ -47,7 +54,7 @@
             </div>
             <div class="page-presentation">
                 <div class="presentation-container">
-                    <h2 class="presentation-title">Bienvenue sur DéfiMaths !</h2>
+                    <h2 class="presentation-title" id="main-title">Bienvenue sur DéfiMaths !</h2>
                     <p class="presentation-text">
                         DéfiMaths est une plateforme interactive dédiée à l'apprentissage des mathématiques à travers des quiz variés et stimulants. 
                         Explorez nos quiz pour tester vos connaissances, améliorer vos compétences et relever des défis adaptés à votre niveau. 

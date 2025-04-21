@@ -624,6 +624,10 @@ footer p{
     display: none;
 }
 
+.burger-menu-visibility-switch {
+    font-size: 0px;
+}
+
 /* Responsive styles for mobile */
 
 @media (max-width: 500px) {

@@ -5,6 +5,11 @@ $database_id = "your_database_id";
 $database_password = "your_database_password";
 $database_name = "your_database_name";
 
+// Configuration for the email used in the register and password reset process
+$mail_domain = "your_mail_domain";
+$mail_user = "your_email";
+$mail_password = "your_email_password";
+
 function connectToDatabase() {
     global $server_name, $database_id, $database_password, $database_name;
     $conn = new mysqli($server_name, $database_id, $database_password, $database_name);
@@ -15,6 +20,35 @@ function connectToDatabase() {
     }
     
     return $conn;
+}
+
+// Functions to easily get the user information from email or id
+function getUserInformationFromEmail($email) {
+    $conn = connectToDatabase();
+    $req = "SELECT * FROM `main` WHERE `main`.`email` = ?";
+    $stmt = $conn->prepare($req);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $data = $result->num_rows > 0 ? $result->fetch_assoc() : false; // Return false if no result was found
+    $stmt->close();
+    $conn->close();
+    return $data;
+}
+
+function getUserInformationFromID($id) {
+    $conn = connectToDatabase();
+    $req = "SELECT * FROM `main` WHERE `main`.`id` = ?";
+    $stmt = $conn->prepare($req);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    $data = $result->num_rows > 0 ? $result->fetch_assoc() : false; // Return false if no result was found
+    $stmt->close();
+    $conn->close();
+    return $data;
 }
 
 //Request to create the database

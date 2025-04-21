@@ -1,13 +1,9 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 require __DIR__ . '/config.php';
 
+require 'vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-require 'vendor/autoload.php';
 
 $email = $_REQUEST['email'];
 $password = $_REQUEST['password'];
@@ -59,7 +55,7 @@ if (!preg_match("/^[a-zA-Z0-9-._]*$/", "$user_name")) {
     </script>";
     $conn -> close();
     exit();
-}
+} 
     
 if (!($check_email_stmt -> execute() && $check_email_stmt -> get_result() -> num_rows === 0)) {
     $toast_type = 'warning';
@@ -85,17 +81,18 @@ if ($conn -> query($create_account) === TRUE) {
     try {
         // Setup for the email (replace the placeholders values with valid ones)
         $mail->isSMTP();
-        $mail->Host = 'your_mail_domain';
+        $mail->CharSet = "UTF-8";
+        $mail->Host = $mail_domain;
         $mail->SMTPAuth = true;
-        $mail->Username = 'your_email';
-        $mail->Password = 'your_password';
+        $mail->Username = $mail_user;
+        $mail->Password = $mail_password;
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
 
-        $mail->setFrom('your_email', 'Your site name');
+        $mail->setFrom($mail_user, 'DéfiMaths');
         $mail->addAddress($email);
 
-        $mail->Subject = 'Verification de votre compte';
+        $mail->Subject = 'Vérification de votre compte';
         $mail->Body    = "Bonjour $user_name,\nMerci de votre inscription à DéfiMaths. Pour finaliser la création de votre compte veuillez cliquer sur le lien ci-dessous : \n$link\nCe lien expirera dans quinze minutes\n\nMerci de ne pas répondre à cet e-mail.";
 
         $mail->send();

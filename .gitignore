@@ -15,8 +15,6 @@
 
 /.idea/
 
-# Personal configured version of the register file for my domain
-/PHP/register-configured.php
+# Personnal folder all of the versions of the logo you can see on the demo website (defimaths.net) is
 
-# Personnal folder for gpg information
-/gpg/
+/Assets/Logo/Personnal/

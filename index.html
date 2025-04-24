@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>DéfiMaths</title>
-        <link rel="icon" type="image/x-icon" href="./Assets/Logo/SiteLogo.png">
+        <link rel="icon" type="image/x-icon" href="Assets/Logo/Personnal/SiteLogo-NoText.png"> <!-- Version of the logo without the text -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <link rel="stylesheet" href="./CSS/style.css">
         <link rel="stylesheet" href="./CSS/user-feedback.css">
@@ -18,7 +18,7 @@
 
             const user_name = await user.get_user_name();
             const page_title = document.getElementById('main-title');
-            page_title.innerText = "Bienvenue" + (user_name ? ", " + user_name : " sur DéfiMaths") + " !"
+            page_title.innerText = "Bienvenue" + (user_name ? " " + user_name : " sur DéfiMaths") + " !"
         </script>
     </head>
     <body>
@@ -33,7 +33,7 @@
         <!-- Main page -->
         <header class="header">
             <div class="header-logo">
-                <img src="Assets/Logo/SiteLogo.png" alt="Logo" class="logo">
+                <img src="Assets/Logo/Personnal/SiteLogo-Text.png" alt="Logo" class="logo"> <!-- Version of the logo with just the text -->
             </div>
             <div class="header-menu">
                 <a href="index.html" class="header-text">Menu</a>
@@ -52,13 +52,16 @@
                 <a class="burger-text" style="text-transform: uppercase" href="selection-page.html">Nos quiz</a>
                 <a class="burger-text" href="login.html" id="user-name-text-burger" ><i class="fa-solid fa-user"></i>Se connecter</a>
             </div>
+            <div class="logo-container">
+                <img src="/Assets/Logo/Personnal/SiteLogo-Base.png" alt="Logo with text an image"> <!-- Version of the logo with the text and the image-->
+            </div>
             <div class="page-presentation">
                 <div class="presentation-container">
                     <h2 class="presentation-title" id="main-title">Bienvenue sur DéfiMaths !</h2>
                     <p class="presentation-text">
                         DéfiMaths est une plateforme interactive dédiée à l'apprentissage des mathématiques à travers des quiz variés et stimulants. 
-                        Explorez nos quiz pour tester vos connaissances, améliorer vos compétences et relever des défis adaptés à votre niveau. 
-                        Connectez-vous ou inscrivez-vous pour suivre votre progression et débloquer de nouveaux contenus. 
+                        Explorez nos quiz pour tester vos connaissanceset améliorer vos compétences. 
+                        Connectez-vous ou inscrivez-vous pour suivre votre progression. 
                         Prêt à relever le défi ? Commencez dès maintenant !
                     </p>
                 </div>

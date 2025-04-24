@@ -129,8 +129,8 @@ header {
 }
 
 .header-logo img {
-    width: 50px;
-    height: 50px;
+    width: 150px;
+    height: 30px;
     margin : 10px
 }
 
@@ -145,6 +145,24 @@ header {
     font-size: 1.2em;
     margin-right: 10px;
     text-transform: none;
+}
+
+/* Style for the logodiv on the landing page */
+
+.logo-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 22%;
+    height: 100%;
+    background-color: var(--theme-header-color);
+}
+
+.logo-container img {
+    width: 100%;
+    position: relative;
+    top: 250px
 }
 
 /* Presentation texts style */
@@ -680,6 +698,12 @@ footer p{
         cursor: pointer;
         transition: all 0.3s ease-in-out;
 
+    }
+
+    /* Hide the logo display on the landing page */
+
+    .logo-container {
+        width: 0;
     }
 
     .quiz-selection-container, .quiz-selection-container *, .presentation-container {

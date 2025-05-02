@@ -1,0 +1,51 @@
+/* Config file for all the css files. Here, you can customize all colors used across the site */
+
+/* Importing the main site font */
+@import url('https://fonts.googleapis.com/css2?family=Jersey+25&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@keyframes arrow-animation {
+    /* Animation used for the arrow in the buttons */
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+    
+}
+
+@keyframes icon-animation {
+    /* Animation used for the icon in the account page buttons */
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.85);
+    }
+    100% {
+        transform: scale(1);
+    }
+    
+}
+
+:root {
+    /* Main theme color and variables (some of the colors might also be used in other components than the specified ones) */
+    --border-color: #ffffff00; /* Border color for buttons */
+    --header-text-before-width: 75%; /* Width of the header text underline */
+    --theme-background-color : #E0B1CB; /* Background color of the page */
+    --theme-header-color : #5E548E; /* Header color */
+    --theme-button-color-normal : #BE95C4; /* Normal button color */
+    --theme-button-color-hovered : #9F86C0; /* Hovered button color */
+    --theme-button-color-selected : #231942; /* Selected button color */
+    --score-text-size : 48px; /* Font size for the score text */
+    --theme-container-normal : #BE95C4; 
+    --theme-container-hovered : #9F86C0;
+    --theme-progress-bar-color : #9F86C0;
+    --theme-progress-value-color : #5E548E;
+    --theme-burger-menu-color : #5E548E; /* color for the burger manu (same as header by default) */
+    --theme-input-border-color : #231942;
+    --theme-input-background-color : #9F86C0;
+}

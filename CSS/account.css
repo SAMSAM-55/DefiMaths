@@ -39,12 +39,12 @@
 /* The inputs used to display the informations */
 .profile-info-item input {
     padding: 2px;
-    border: 2px solid var(--theme-button-color-selected);
+    border: 2px solid var(--theme-input-border-color);
     outline: none;
     border-radius: 5px;
     font-size: 1em;
     font-weight: bold;
-    background-color: var(--theme-button-color-hovered);
+    background-color: var(--theme-input-background-color);
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 

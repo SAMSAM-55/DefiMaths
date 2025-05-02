@@ -12,7 +12,7 @@
     border-radius: 9px;
     opacity: 100%;
     z-index: 1000;
-    background-color: var(--theme-button-color-normal);
+    background-color: var(--theme-container-normal);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 

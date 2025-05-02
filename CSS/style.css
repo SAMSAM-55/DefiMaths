@@ -1,46 +1,3 @@
-/* Importing the main site font */
-@import url('https://fonts.googleapis.com/css2?family=Jersey+25&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-@keyframes arrow-animation {
-    /* Animation used for the arrow in the buttons */
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(10px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-    
-}
-
-@keyframes icon-animation {
-    /* Animation used for the icon in the account page buttons */
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(0.85);
-    }
-    100% {
-        transform: scale(1);
-    }
-    
-}
-
-:root {
-    /* Main theme color and variables (some of the colors might also be used in other components than the specified ones) */
-    --border-color: #ffffff00; /* Border color for buttons */
-    --header-text-before-width: 75%; /* Width of the header text underline */
-    --theme-background-color : #E0B1CB; /* Background color of the page */
-    --theme-header-color : #5E548E; /* Header color */
-    --theme-button-color-normal : #BE95C4; /* Normal button color */
-    --theme-button-color-hovered : #9F86C0; /* Hovered button color */
-    --theme-button-color-selected : #231942; /* Selected button color */
-    --score-text-size : 48px; /* Font size for the score text */
-}
-
 /* Enables smooth scrolling for anchor links */
 
 html {
@@ -207,7 +164,7 @@ header {
 }
 
 .quiz-selection-container.selected {
-    background-color: var(--theme-button-color-normal);
+    background-color: var(--theme-container-normal);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -277,7 +234,7 @@ header {
 
 /* The container that holds the description and other elements about the quiz (including the settings) */
 .quiz-selection-info-container {
-    background-color: var(--theme-button-color-normal);
+    background-color: var(--theme-container-normal);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -431,7 +388,6 @@ header {
     outline: none;
     height: 35px;
     width: 250px;
-    background-image: element('<i class="fa-regular fa-circle-check"></i>');
     background-color: var(--theme-button-color-hovered);
     color: black;
     text-align: center;
@@ -481,24 +437,24 @@ label[for="answer-input"] {
 }
 
 .timer::-webkit-progress-bar {
-    background-color: var(--theme-button-color-hovered);
+    background-color: var(--theme-progress-bar-color);
     border-radius: 5px;
 }
 
 .timer::-webkit-progress-value {
-    background-color: var(--theme-header-color);
+    background-color: var(--theme-progress-value-color);
     border-radius: 5px;
 }
 
 .timer::-moz-progress-bar {
-    background-color: var(--theme-button-color-hovered);
+    background-color: var(--theme-progress-bar-color);
     border-radius: 5px;
 }
 
 /* Utility buttons style (going to the next questions and submitting the answer) */
 
 .quiz-utility-button {
-    background-color: var(--theme-background-color);
+    background-color: var(--theme-background-color); /* for my personnal use case, I do not want the utility button to be visible until hover */
     color: white;
     width: 250px;
     font-size: 1.2em;
@@ -532,7 +488,7 @@ label[for="answer-input"] {
 
 @media (hover: hover) {
     .quiz-utility-button:hover {
-        background-color: var(--theme-button-color-normal);
+        background-color: var(--theme-button-color-normal); /* just slightly change the color when hovered */
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         transform: translateY(-2px) scale(1.02);
     }
@@ -666,7 +622,7 @@ footer p{
         height: 100vh;
         width: 50vw;
         z-index: 10000;
-        background-color: var(--theme-header-color);
+        background-color: var(--theme-burger-menu-color);
         transform-origin: right;
         transform: translateX(100%);
         transition: transform 0.2s ease-in-out;

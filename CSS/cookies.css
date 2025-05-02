@@ -16,7 +16,7 @@ body {
     width: 50%;
     max-width: 800px;
     min-width: 350px;
-    background-color: var(--theme-button-color-normal);
+    background-color: var(--theme-container-normal);
     align-self: center;
     padding-left: 10px;
     border-radius: 7px;
@@ -46,10 +46,6 @@ body {
     border-collapse: collapse;
     margin: 9px;
     padding: 5px;
-}
-
-.presentation-container table td, .presentation-container table th {
-
 }
 
 /* Responsive cookies design for mobile */

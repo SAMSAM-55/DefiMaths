@@ -6,7 +6,7 @@
     width: 350px;
     right: calc(-50% + 175px);
     margin-top: 50px;
-    background-color: var(--theme-button-color-normal);
+    background-color: var(--theme-container-normal);
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
@@ -33,12 +33,12 @@
 /* Input fields styles */
 .form-item input {
     padding: 2px;
-    border: 2px solid var(--theme-button-color-selected);
+    border: 2px solid var(--theme-input-border-color);
     outline: none;
     border-radius: 5px;
     font-size: 1em;
     font-weight: bold;
-    background-color: var(--theme-button-color-hovered);
+    background-color: var(--theme-input-background-color);
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -51,12 +51,12 @@
 
 .form-item div input {
     padding: 2px;
-    border: 2px solid var(--theme-button-color-selected);
+    border: 2px solid var(--theme-input-border-color);
     outline: none;
     border-radius: 5px;
     font-size: 1em;
     font-weight: bold;
-    background-color: var(--theme-button-color-hovered);
+    background-color: var(--theme-input-background-color);
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     width: 285px;
 }

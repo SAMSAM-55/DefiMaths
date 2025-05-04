@@ -31,7 +31,9 @@ header {
     display: flex;
     justify-content: center;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    width: 100%;
+    width: 100vw;
+    box-sizing: border-box;
+    margin: 0;
     position: sticky;
     height: 70px;
     top: 0;
